@@ -94,4 +94,18 @@ export class PlayerService {
   }
 
 
+ 
+
+  getPlayerbyNameSearch(searchKey:string):Observable<any>{
+    // return this.httpClient.post(this.localUrl+searchKey,'');
+    let params = new HttpParams();
+    params = params.append('apikey', this.apikey);
+    params = params.append('name', searchKey);
+
+    return this.httpClient.get(this.findbyPlayerNameApi, {params: params})
+
+    // https://cricapi.com/api/playerFinder?apikey=uppjdjvssscHrYNYfIzTHCJPdhP2&name=Tendulkar
+    return new Observable<any>();
+  }
+
 }

@@ -1,7 +1,9 @@
 .inline-block {
-    display: inline-block;
+    display: inline-table;
     width: 500px;
-    /* height:150px; */
+    height: 700px;
+    text-align: center;
+    /* height:250px; */
     margin: 1%;
   }
 
@@ -19,7 +21,8 @@
     }
 
   mat-card img{
-    object-fit: scale-down; /*this makes the image in src fit to the size specified below*/
+    height: 150px;
+    object-fit: contain; /*this makes the image in src fit to the size specified below*/
     width: 40%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
     height: 0%;
   }
@@ -28,3 +31,11 @@
     color:green;
     font-size:40px
     }
+
+  mat-card-content{
+    display: wrap;
+  }
+
+  .bottom{
+    margin-bottom: 1%;
+  }
