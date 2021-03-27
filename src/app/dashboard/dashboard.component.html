@@ -1,39 +1,54 @@
+<mat-form-field class="example-full-width">
 
-  <mat-form-field class="example-full-width">
+  <input type="text" placeholder="Search player" matInput [formControl]="myControl" [matAutocomplete]="auto">
 
-    <input type="text" placeholder="Search player" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of options" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
 
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-
-  </mat-form-field>
+</mat-form-field>
 <br>
 
 
 <!-- <div *ngIf="noteList && noteList.length">-->
-    <mat-card class="inline-block" *ngFor="let note of playerDisplayed"> 
-        <div>
-            <mat-card>
-        <mat-card-header class="inline-block-header">
-         
-            <mat-card-title>
-                {{note.name}} 
-            </mat-card-title>
-            
-          </mat-card-header>
-          <img mat-card-image src={{note.imageURL}} alt="">
- 
-        <mat-card-content>
-           Major teams- {{note.majorTeams}} 
-            
-           <br>
-            <button mat-raised-button color="primary" >Add to Fav</button>
-        
-        </mat-card-content>
-     
+<mat-card class="inline-block" inline-block *ngFor="let note of playerDisplayed">
+  <div>
+    <mat-card>
+      <mat-card-header class="inline-block-header">
+
+        <mat-card-title>
+          {{note.name}}
+        </mat-card-title>
+
+      </mat-card-header>
+      <div *ngIf="note.imageURL; else elseBlock">
+        <img mat-card-image src={{note.imageURL}} alt="">
+      </div>
+      <ng-template #elseBlock>
+        <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
+      </ng-template>
+
+
+      <mat-card-content>
+        Major teams- {{note.majorTeams}}
+
+        <br>
+        <button mat-raised-button color="primary">View Info</button>
+        <button mat-icon-button (click)="toggleSelected(note)">
+
+          <mat-icon *ngIf="selected" aria-label="Example icon-button with a heart icon"
+          style="background-color:palevioletred; color:white">
+            favorite
+          </mat-icon>
+
+          <mat-icon *ngIf="!selected" aria-label="Example icon-button with a heart icon">
+            favorite_border
+          </mat-icon>
+
+        </button>
+      </mat-card-content>
+
     </mat-card>
-    </div>
-    
+  </div>

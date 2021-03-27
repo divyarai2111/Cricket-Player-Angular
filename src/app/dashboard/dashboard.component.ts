@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { from } from 'rxjs';
 import { PlayerIdModule } from '../Models/player-id/player-id.module';
 import { PlayerService } from '../Services/player.service'
@@ -10,6 +10,9 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  @Input() selected: boolean =false;
+  @Output() selectedChange = new EventEmitter<boolean>();
   errMessage: string = '';
   playerId: Array<playerId> | undefined;
   playerIdArray: Array<any> = []
@@ -47,11 +50,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     // this.getNotes()
     this.playerService.getInitPlayer()
+    //getting player id by passing null as name
     this.playerService.getInitPlayer().subscribe((response) => {
       response.data.forEach((element: any) => {
         this.playerInit.push(element)
 
+        //from that pid, call statistic function
         this.playerService.getInitPlayersStats(element.pid).subscribe((res) => {
+
+          //add this statistic in my mongodb
          this.playerService.addInitPlayersStats(res).subscribe((re)=>{
            console.log(re)
          })
@@ -98,5 +105,12 @@ export class DashboardComponent implements OnInit {
     //   this.errMessage = 'Http failure response for http://localhost:3000/notes: 404 Not Found'
     //   return;
     // })
+  }
+
+  toggleSelected(event:any){
+    console.log(event)
+    this.selected = !this.selected;
+    this.selectedChange.emit(this.selected);
+
   }
 }

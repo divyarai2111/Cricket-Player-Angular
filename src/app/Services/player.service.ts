@@ -27,9 +27,9 @@ export class PlayerService {
 
     let params = new HttpParams();
     params = params.append('apikey', this.apikey);
-    params = params.append('name', 'Sachin');
-
-    return this.httpClient.get(this.findbyPlayerNameApi, {params: params})
+    params = params.append('name', ' Jhye Richardson');
+  return this.httpClient.get(this.findbyPlayerNameApi, {params: params})
+  return new Observable<any>()
 
   }
 
