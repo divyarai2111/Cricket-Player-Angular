@@ -3,8 +3,8 @@ export class User {
     email: string;
     password: string;
     constructor(){
-        this.username = 'default';
-        this.email = 'default';
-        this.password = 'default';
+        this.username = "";
+        this.email = "";
+        this.password = "";
     }
 }

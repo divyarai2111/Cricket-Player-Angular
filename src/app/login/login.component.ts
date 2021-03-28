@@ -1,8 +1,7 @@
-import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from '../Models/User';
-import { UserserviceService } from '../userservice.service';
+import { UserService } from '../userservice.service';
+import { Router } from '@angular/router';
 export const TOKEN_NAME = "token_name";
 
 @Component({
@@ -11,47 +10,30 @@ export const TOKEN_NAME = "token_name";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user:User;
-  username:string;
-  password:string;
+  user: User;
 
+  constructor(private userservice: UserService,
+     private router: Router) {
+      this.user= new User();
+     }
 
-  constructor(private router:Router, private userservice: UserserviceService) {
-    this.user = new User();
-   }
+  ngOnInit() {
+  }
 
-  ngOnInit(){}
-
-  // login() {
-  //   console.log("User----->"+this.user.username);
-  //   this.userservice.loginUser(this.user.username, this.user.password).subscribe(data => {
-  //     console.log("data--->"+data.toString);
-  //     if (data) {
-  //       localStorage.setItem(TOKEN_NAME, data);
-  //       alert("logged in")
-  //       this.router.navigate(["/dashboard"]);
-  //     }
-  //   },
-  //     error => {
-  //       if (error.status === 404) {
-  //         const errorMsg = error.error.message;
-  //       }
-  //     }
-  //   )
-  // }
   login() {
-  this.userservice.loginUser(this.user.username,this.user.password).subscribe(data=>{
-    console.log("data--->"+data);
-  if (data) {
-    alert("Nice to Have You Back :)");
-    localStorage.setItem(TOKEN_NAME, data);
-    this.router.navigate(["/dashboard"]);
+    console.log("User----->"+this.user.username);
+    this.userservice.login(this.user).subscribe(data => {
+      console.log("data--->"+data.toString);
+      if (data) {
+        localStorage.setItem(TOKEN_NAME,data["token"]);
+        this.router.navigate(["/dashboard"]);
+      }
+    },
+      error => {
+        if (error.status === 404) {
+          const errorMsg = error.error.message;
+        }
+      }
+    )
   }
-  },(error)=>{
-    console.log(error); 
-    console.log("hello inside error block")
-  }
-  )
-}
-
 }
