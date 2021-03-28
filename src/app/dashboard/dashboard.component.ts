@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() selected: boolean =false;
+  @Input() selected: boolean = false;
   @Output() selectedChange = new EventEmitter<boolean>();
   errMessage: string = '';
   playerId: Array<playerId> | undefined;
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   // // noteList: Array<Note>;
   myControl = new FormControl();
   options: string[] = ['Cash', 'Credit Card', 'Paypal'];
-  playerDisplayed: Array<any>=[];
+  playerDisplayed: Array<any> = [];
   constructor(private playerService: PlayerService) {
 
 
@@ -59,9 +59,9 @@ export class DashboardComponent implements OnInit {
         this.playerService.getInitPlayersStats(element.pid).subscribe((res) => {
 
           //add this statistic in my mongodb
-         this.playerService.addInitPlayersStats(res).subscribe((re)=>{
-          //  console.log(re)
-         })
+          this.playerService.addInitPlayersStats(res).subscribe((re) => {
+            //  console.log(re)
+          })
         })
         // console.log(element)
       });
@@ -83,8 +83,8 @@ export class DashboardComponent implements OnInit {
 
     this.playerService.getPlayersDisplayed().subscribe((response) => {
       response.forEach((element: any) => {
-        if(element!=undefined)
-        this.playerDisplayed.push(element)
+        if (element != undefined)
+          this.playerDisplayed.push(element)
         // console.log(element)
       });
 
@@ -107,7 +107,7 @@ export class DashboardComponent implements OnInit {
     // })
   }
 
-  toggleSelected(event:any){
+  toggleSelected(event: any) {
     console.log(event)
     this.selected = !this.selected;
     this.selectedChange.emit(this.selected);
@@ -116,38 +116,47 @@ export class DashboardComponent implements OnInit {
   public searchStr: string = "";
 
 
-  updateUrl(event:any){
+  updateUrl(event: any) {
     console.log("Image error")
     console.log(event)
+    let imgsrc="../../assets/images/dummy.jpg";
   }
-  getSearchText(event:any){
+  getSearchText(event: any) {
     // console.log(event.length)
 
-    if(event.length>=3){
-    this.playerDisplayed=[];
-    this.playerService.getPlayerbyNameSearch(event).subscribe((res)=>{
-      res.data.forEach((element:any) => {
-        this.playerService.getInitPlayersStats(element.pid).subscribe((res2)=>{
-       
-          if(res2!=undefined){
-            console.log(res2)
-            this.playerDisplayed.push(res2)
-  
-          }
-         
-          
-        },(err)=>{
-          console.log(":none");
-        })
-        
-      });
+    if (event.length >= 3) {
+      this.playerDisplayed = [];
+      this.playerService.getPlayerbyNameSearch(event).subscribe((res) => {
+        res.data.forEach((element: any) => {
+          this.playerService.getInitPlayersStats(element.pid).subscribe((res2) => {
+
+            if (res2 != undefined) {
+              console.log(res2)
+              this.playerDisplayed.push(res2)
+
+            }
+
+
+          }, (err) => {
+            console.log(":none");
+          })
+
+        });
       }
-      
-      // console.log(res)
-   
-    ,(err)=>{
-      console.log(err)
-    })
+
+        // console.log(res)
+
+        , (err) => {
+          console.log(err)
+        })
+    }
+  }
+
+
+
+  openDialog(event: any) {
+
   }
 }
-}
+
+

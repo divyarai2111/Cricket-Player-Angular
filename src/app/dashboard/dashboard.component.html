@@ -9,6 +9,8 @@
   </mat-autocomplete>
 
 </mat-form-field> -->
+
+
 <form class="search-form">
   <mat-form-field class="example-full-width">
      <input class="toolbar-search" type="text" matInput #term (keyup)="getSearchText(term.value)">
@@ -32,7 +34,7 @@
 
   </mat-card-header>
   <div *ngIf="note.imageURL!=null; else elseBlock">
-    <img mat-card-image src={{note.imageURL}} alt="" (error)="updateUrl($event)">
+    <img mat-card-image src="{{note.imageURL}}" alt="" (error)="updateUrl($event)">
   </div>
   <ng-template #elseBlock>
     <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
@@ -67,7 +69,7 @@
   
 
     <br>
-    <button mat-raised-button color="primary"  class="bottom">View Info</button>
+    <button mat-raised-button color="primary"  class="bottom" (click)="openDialog($event)">View Info</button>
     <button mat-icon-button (click)="toggleSelected(note)">
 
       <mat-icon *ngIf="selected" aria-label="Example icon-button with a heart icon"
