@@ -1,10 +1,17 @@
 .inline-block {
     display: inline-table;
-    width: 500px;
+    width: 220px;
     height: 700px;
     text-align: center;
     /* height:250px; */
     margin: 1%;
+  }
+  .bg{
+    background-image: url("../../assets/images/CrickBg.jpg"); 
+    background-size: contain;
+    
+    /* backgro- image: url("../../assets/images/back2.jpg");   */
+
   }
 
   .inline-block-header {
@@ -26,6 +33,13 @@
     width: 40%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
     height: 0%;
   }
+
+mat-form-field{
+  width: 95%;
+  margin-top: 10px;
+  padding: 1%;
+
+}
 
   mat-card-title{
     color:green;

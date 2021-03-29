@@ -10,78 +10,89 @@
 
 </mat-form-field> -->
 
+<div  class="bg" id="page-wrapper">
 
-<form class="search-form">
-  <mat-form-field class="example-full-width">
-     <input class="toolbar-search" type="text" matInput #term (keyup)="getSearchText(term.value)">
-     <mat-placeholder>Search : type atleast 3 letters</mat-placeholder>
-     <mat-icon matSuffix style="font-size: 1.2em">search</mat-icon>
-  </mat-form-field>
-</form>
-
-<br>
-
-
-<!-- <div *ngIf="noteList && noteList.length">-->
-<mat-card class="inline-block" inline-block *ngFor="let note of playerDisplayed">
-
-
-  <mat-card-header class="inline-block-header">
-
-    <mat-card-title>
-      {{note.name}}
-    </mat-card-title>
-
-  </mat-card-header>
-  <div *ngIf="note.imageURL!=null; else elseBlock">
-    <img mat-card-image src="{{note.imageURL}}" alt="" (error)="updateUrl($event)">
-  </div>
-  <ng-template #elseBlock>
-    <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
-  </ng-template>
-
-
-  <mat-card-content>
-    <table border=1>
-      <tr>
-        <td>
-            Major Teams
-        </td>
-        <td>
-          {{note.majorTeams}}
-        </td>
-        
-      </tr>
-
-      <tr>
-        <td>Batting Style</td>
-        <td> {{note.battingStyle}}</td>
-      </tr>
-
-      <tr>
-        <td>Bowling Style</td>
-        <td> {{note.bowlingStyle}}</td>
-      </tr>
-      <tr >
-        <td colspan="2">{{note.profile}}</td>
-      </tr>
-    </table>
   
+          
 
-    <br>
-    <button mat-raised-button color="primary"  class="bottom" (click)="openDialog($event)">View Info</button>
-    <button mat-icon-button (click)="toggleSelected(note)">
+            <form>
+              <mat-form-field  >
+                <input type="text"  matInput #term (keyup)="getSearchText(term.value)">
+                <mat-placeholder>Search : type atleast 3 letters</mat-placeholder>
+                <mat-icon matSuffix style="font-size: 1.2em">search</mat-icon>
+              </mat-form-field>
+            </form>
+            <!-- <label class="col-sm-3 control-label" for="form-control-2">Rounded text input</label>
+            <div class="col-sm-9">
+              <input id="form-control-2" class="form-control input-pill" type="text">
+            </div> -->
 
-      <mat-icon *ngIf="selected" aria-label="Example icon-button with a heart icon"
-        style="background-color:palevioletred; color:white">
-        favorite
-      </mat-icon>
+            <!-- <div *ngIf="noteList && noteList.length">-->
+            <mat-card class="inline-block" inline-block *ngFor="let note of playerDisplayed">
 
-      <mat-icon *ngIf="!selected" aria-label="Example icon-button with a heart icon">
-        favorite_border
-      </mat-icon>
 
-    </button>
-  </mat-card-content>
-</mat-card>
+              <mat-card-header class="inline-block-header">
 
+                <mat-card-title>
+                  {{note.name}}
+                </mat-card-title>
+
+              </mat-card-header>
+              <div *ngIf="note.imageURL!=null; else elseBlock">
+                <img mat-card-image src="{{note.imageURL}}" alt="" (error)="updateUrl($event)">
+              </div>
+              <ng-template #elseBlock>
+                <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
+              </ng-template>
+
+
+              <mat-card-content>
+                <table border=1>
+                  <tr>
+                    <td>
+                      Major Teams
+                    </td>
+                    <td>
+                      {{note.majorTeams}}
+                    </td>
+
+                  </tr>
+
+                  <tr>
+                    <td>Batting Style</td>
+                    <td> {{note.battingStyle}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Bowling Style</td>
+                    <td> {{note.bowlingStyle}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">{{note.profile}}</td>
+                  </tr>
+                </table>
+
+
+                <br>
+                <button mat-raised-button color="primary" class="bottom" (click)="openDialog($event)">View Info</button>
+                <button mat-icon-button (click)="toggleSelected(note)">
+
+                  <mat-icon *ngIf="selected" aria-label="Example icon-button with a heart icon"
+                    style="background-color:palevioletred; color:white">
+                    favorite
+                  </mat-icon>
+
+                  <mat-icon *ngIf="!selected" aria-label="Example icon-button with a heart icon">
+                    favorite_border
+                  </mat-icon>
+
+                </button>
+              </mat-card-content>
+            </mat-card>
+
+
+
+         
+
+
+</div>

@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { from } from 'rxjs';
 import { PlayerIdModule } from '../Models/player-id/player-id.module';
 import { PlayerService } from '../Services/player.service'
 import { playerId } from '../Models/playerid'
 import { FormControl } from '@angular/forms';
+import { FavoriteComponent } from '../favorite/favorite.component';
+import { FavServiceService } from '../Services/fav-service.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,8 +13,10 @@ import { FormControl } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
 
+  @ViewChild(FavoriteComponent) favComponent:FavoriteComponent | undefined
   @Input() selected: boolean = false;
   @Output() selectedChange = new EventEmitter<boolean>();
+  @Output() buttonClicked = new EventEmitter();
   errMessage: string = '';
   playerId: Array<playerId> | undefined;
   playerIdArray: Array<any> = []
@@ -26,7 +30,8 @@ export class DashboardComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['Cash', 'Credit Card', 'Paypal'];
   playerDisplayed: Array<any> = [];
-  constructor(private playerService: PlayerService) {
+  constructor(private playerService: PlayerService,
+    private favService:FavServiceService) {
 
 
   }
@@ -110,7 +115,11 @@ export class DashboardComponent implements OnInit {
   toggleSelected(event: any) {
     console.log(event)
     this.selected = !this.selected;
-    this.selectedChange.emit(this.selected);
+    // this.selectedChange.emit(this.selected);
+    // this.buttonClicked.emit(this.selected);
+    this.favService.setfavoritePlayer(this.selected);
+
+
 
   }
   public searchStr: string = "";
@@ -119,7 +128,7 @@ export class DashboardComponent implements OnInit {
   updateUrl(event: any) {
     console.log("Image error")
     console.log(event)
-    let imgsrc="../../assets/images/dummy.jpg";
+    let imgsrc = "../../assets/images/dummy.jpg";
   }
   getSearchText(event: any) {
     // console.log(event.length)
@@ -155,8 +164,13 @@ export class DashboardComponent implements OnInit {
 
 
   openDialog(event: any) {
+    // this._matDialog.open(DialogActionsExampleComponent);
 
   }
 }
 
+
+function ChildComponent(ChildComponent: any) {
+  throw new Error('Function not implemented.');
+}
 
