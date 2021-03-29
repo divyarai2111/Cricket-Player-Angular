@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { USERNAME } from '../login/login.component';
 import { FavServiceService } from '../Services/fav-service.service';
 
@@ -14,12 +15,15 @@ export class FavoriteComponent implements OnInit {
   
   ngOnInit(): void {
   
-    // console.log(localStorage.getItem("username"))
+    console.log(localStorage.getItem("username"))
+    if(localStorage.getItem("username")==null){
+      this.router.navigate(["/login"]);
+    }
     this.getFavPlayersList(localStorage.getItem("username"));
     
   }
 
-  constructor(private favService:FavServiceService){
+  constructor(private favService:FavServiceService,private router:Router){
 
   }
 
