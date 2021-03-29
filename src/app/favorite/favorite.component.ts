@@ -30,7 +30,7 @@ export class FavoriteComponent implements OnInit {
 
   getFavPlayersList(username:any){
     // let user=localStorage.getItem("username");
-    // console.log(user)
+    console.log(username)
     this.favService.getAllFavplayers(username).subscribe((res:any)=>{
       this.players.push(res)
       console.log(this.players)

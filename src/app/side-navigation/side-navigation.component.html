@@ -1,17 +1,17 @@
 <div class="sidebar hidden-sm-down">
   <ul class="nav in" id="side-menu">
 
-      <li class="user-pro">
+      <li class="user-pro" *ngIf="showuser">
           <a href="#" class="text-center">
-              <div class="profile-img">
-                  <img src="assets/images/profile.jpg"/>
-              </div>
-              <span>John Doe</span>
-              <small class="text-center">Senior Developer</small>
+              <!-- <div class="profile-img">
+                  <img src="../../assets/images/dummy.jpg"/>
+              </div> -->
+              <span>Welcome  {{user}}</span>
+              <small class="text-center"></small>
           </a>
       </li>
       <li><a [routerLink]="['/dashboard']"  class="waves-effect"><i class="fa fa-home"></i> <span
-              class="hide-menu">Dashboard</span></a></li>
+              class="hide-menu">Home</span></a></li>
       <!-- <li class=""><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-envelope-o"></i> <span
               class="hide-menu"> Mailbox <span class="fa arrow"></span><span
               class="label label-rouded label-danger pull-right">6</span></span></a>

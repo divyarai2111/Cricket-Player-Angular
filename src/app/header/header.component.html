@@ -11,9 +11,14 @@
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
             <mat-icon>share</mat-icon>
         </button>
-        <a mat-list-item href="/login">Login</a>
-        <a mat-list-item href="/dashboard">dashboard</a>
-        <a mat-list-item href="/logout" (click)="logout()">Logout</a>
+        
+        
+        <!-- <a  mat-button  routerLink="/register">Register</a> -->
+        <a  mat-button  *ngIf="!userlogin" routerLink="/login">Login</a>
+        <!-- <a mat-list-item href="/login">Login</a> -->
+        <!-- <a mat-list-item href="/dashboard">dashboard</a> -->
+        <a  mat-button  *ngIf="userlogin" routerLink="/logout"  (click)="logout()">Logout</a>
+        <!-- <a mat-list-item href="/logout" (click)="logout()">Logout</a> -->
     </mat-toolbar>
 
 

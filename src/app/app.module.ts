@@ -23,6 +23,8 @@ import { UserService } from './userservice.service';
 import { PlayerService } from './Services/player.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule  } from '@angular/material/dialog';
+import { CourseDialogComponent } from './course-dialog/course-dialog.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     RegisterComponent,
     
-    
+    CourseDialogComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -46,15 +50,17 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-  RouterModule,
+    RouterModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatAutocompleteModule  ,
-    
+    MatAutocompleteModule,
+    MatDialogModule
   
+
+
   ],
-  providers: [FavServiceService,UserService,PlayerService],
+  providers: [FavServiceService, UserService, PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

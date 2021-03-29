@@ -1,3 +1,4 @@
+import { ElementSchemaRegistry } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,20 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  userlogin:boolean=false;
   ngOnInit(): void {
+    // console.log(localStorage.getItem("username"))
+    if(localStorage.getItem("username")!=null){
+     this.userlogin=true
+    }
+    
+  }
+
+  ngDoCheck(){
+    if(localStorage.getItem("username")!=null){
+      this.userlogin=true
+     }else
+     this.userlogin=false
   }
 
   logout(){

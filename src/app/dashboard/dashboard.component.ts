@@ -6,6 +6,9 @@ import { playerId } from '../Models/playerid'
 import { FormControl } from '@angular/forms';
 import { FavoriteComponent } from '../favorite/favorite.component';
 import { FavServiceService } from '../Services/fav-service.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -17,6 +20,8 @@ export class DashboardComponent implements OnInit {
   @Input() selected: boolean = false;
   @Output() selectedChange = new EventEmitter<boolean>();
   @Output() buttonClicked = new EventEmitter();
+  error:boolean=false;
+  imgsrc=''
   errMessage: string = '';
   playerId: Array<playerId> | undefined;
   playerIdArray: Array<any> = []
@@ -31,7 +36,9 @@ export class DashboardComponent implements OnInit {
   options: string[] = ['Cash', 'Credit Card', 'Paypal'];
   playerDisplayed: Array<any> = [];
   constructor(private playerService: PlayerService,
-    private favService:FavServiceService) {
+    private favService:FavServiceService,
+    public dialog: MatDialog,
+    private router:Router) {
 
 
   }
@@ -112,9 +119,18 @@ export class DashboardComponent implements OnInit {
     // })
   }
 
-  toggleSelected(event: any) {
+  toggleSelected(event: any,i:any) {
+    console.log(localStorage.getItem("username"))
+    if(localStorage.getItem("username")==null){
+      this.router.navigate(["/login"]);
+    }
     console.log(event)
-    this.selected = !this.selected;
+    if (event === i) {
+      this.selected = !this.selected;
+     } else {
+     this.selected = this.selected;
+     }
+  
     // this.selectedChange.emit(this.selected);
     // this.buttonClicked.emit(this.selected);
     let username=localStorage.getItem("username");
@@ -136,7 +152,8 @@ export class DashboardComponent implements OnInit {
   updateUrl(event: any) {
     console.log("Image error")
     console.log(event)
-    let imgsrc = "../../assets/images/dummy.jpg";
+    // this.error=true;
+    this.imgsrc = "../../assets/images/dummy.jpg";
   }
   getSearchText(event: any) {
     // console.log(event.length)
@@ -172,8 +189,16 @@ export class DashboardComponent implements OnInit {
 
 
   openDialog(event: any) {
-    // this._matDialog.open(DialogActionsExampleComponent);
+  
+    // console.log(event)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+     event
+  };
+  
+  const dialogRef = this.dialog.open(CourseDialogComponent,dialogConfig);
 
+  
   }
 }
 
@@ -181,4 +206,3 @@ export class DashboardComponent implements OnInit {
 function ChildComponent(ChildComponent: any) {
   throw new Error('Function not implemented.');
 }
-

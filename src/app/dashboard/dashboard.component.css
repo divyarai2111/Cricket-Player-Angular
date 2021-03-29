@@ -1,7 +1,7 @@
 .inline-block {
     display: inline-table;
-    width: 220px;
-    height: 700px;
+    width: 200px;
+    height: 220px;
     text-align: center;
     /* height:250px; */
     margin: 1%;
@@ -28,6 +28,7 @@
     }
 
   mat-card img{
+    
     height: 150px;
     object-fit: contain; /*this makes the image in src fit to the size specified below*/
     width: 40%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
@@ -40,14 +41,21 @@ mat-form-field{
   padding: 1%;
 
 }
+mat-card-actions{
+  display: flex; justify-content: start; flex-direction: column; flex-wrap: wrap;
+
+}
 
   mat-card-title{
+    flex-shrink: 0;
     color:green;
     font-size:40px
     }
 
   mat-card-content{
-    display: wrap;
+    /* display: wrap; */
+    flex-grow: 1;
+    overflow: auto;
   }
 
   .bottom{

@@ -28,7 +28,7 @@
             </div> -->
 
             <!-- <div *ngIf="noteList && noteList.length">-->
-            <mat-card class="inline-block" inline-block *ngFor="let note of playerDisplayed">
+            <mat-card class="inline-block" inline-block *ngFor="let note of playerDisplayed, let i = index">
 
 
               <mat-card-header class="inline-block-header">
@@ -44,38 +44,41 @@
               <ng-template #elseBlock>
                 <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
               </ng-template>
+              <div *ngIf="error">
+                <img mat-card-image src="{{imgsrc}}">
+              </div>
 
 
               <mat-card-content>
-                <table border=1>
+                <table>
                   <tr>
-                    <td>
-                      Major Teams
-                    </td>
-                    <td>
+                    <!-- <td>
+                      Teams
+                    </td> -->
+                    <!-- <td>
                       {{note.majorTeams}}
-                    </td>
+                    </td> -->
 
                   </tr>
-
+<!-- 
                   <tr>
                     <td>Batting Style</td>
                     <td> {{note.battingStyle}}</td>
-                  </tr>
+                  </tr> -->
 
-                  <tr>
+                  <!-- <tr>
                     <td>Bowling Style</td>
                     <td> {{note.bowlingStyle}}</td>
                   </tr>
                   <tr>
                     <td colspan="2">{{note.profile}}</td>
-                  </tr>
+                  </tr> -->
                 </table>
 
 
                 <br>
-                <button mat-raised-button color="primary" class="bottom" (click)="openDialog($event)">View Info</button>
-                <button mat-icon-button (click)="toggleSelected(note)">
+                <button mat-raised-button color="primary" class="bottom" (click)="openDialog(note)">View Info</button>
+                <button mat-icon-button (click)="toggleSelected(note,i)">
 
                   <mat-icon *ngIf="selected" aria-label="Example icon-button with a heart icon"
                     style="background-color:palevioletred; color:white">

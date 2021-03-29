@@ -1,0 +1,57 @@
+
+
+
+
+<mat-card class="inline-block" inline-block>
+
+
+    <mat-card-header class="inline-block-header">
+
+      <mat-card-title>
+        {{description.name}}
+      </mat-card-title>
+
+    </mat-card-header>
+    <!-- <div *ngIf="description.imageURL!=null; else elseBlock">
+      <img mat-card-image src="{{description.imageURL}}" alt="" >
+    </div>
+    <ng-template #elseBlock>
+      <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
+    </ng-template> -->
+
+
+    <mat-card-content>
+      <table border=1>
+        <tr>
+          <td>
+            Major Teams
+          </td>
+          <td>
+            {{description.majorTeams}}
+          </td>
+
+        </tr>
+
+        <tr>
+          <td>Batting Style</td>
+          <td> {{description.battingStyle}}</td>
+        </tr>
+
+        <tr>
+          <td>Bowling Style</td>
+          <td> {{description.bowlingStyle}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">{{description.profile}}</td>
+        </tr>
+      </table>
+
+
+      <br>
+  
+    </mat-card-content>
+  </mat-card>
+
+  <mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+</mat-dialog-actions>
