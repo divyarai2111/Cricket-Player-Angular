@@ -16,18 +16,29 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FavServiceService } from './Services/fav-service.service';
+import { UserService } from './userservice.service';
+import { PlayerService } from './Services/player.service';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    SideNavigationComponent
+    SideNavigationComponent,
+    LoginComponent,
+    RegisterComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -35,14 +46,15 @@ import { SideNavigationComponent } from './side-navigation/side-navigation.compo
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    // MatExpansionModule,
+  RouterModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
     MatAutocompleteModule  ,
+    
   
   ],
-  providers: [],
+  providers: [FavServiceService,UserService,PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

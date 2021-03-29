@@ -117,7 +117,9 @@ export class DashboardComponent implements OnInit {
     this.selected = !this.selected;
     // this.selectedChange.emit(this.selected);
     // this.buttonClicked.emit(this.selected);
-    this.favService.setfavoritePlayer(this.selected);
+    this.favService.addFavoritePlayer(event,"Divya").subscribe((res)=>{
+      
+    })
 
 
 

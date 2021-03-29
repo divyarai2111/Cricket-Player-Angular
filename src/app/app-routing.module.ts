@@ -4,11 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { FavoriteComponent } from './favorite/favorite.component';
 // import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component'
 
 
 const appRoutes: Routes = [
-  // { path: 'login', component: LoginComponent },
-  // { path: 'logout', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'logout', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent,
   //  canActivate: [CanActivateRouteGuard] 
   },

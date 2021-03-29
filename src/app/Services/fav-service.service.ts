@@ -28,16 +28,22 @@ export class FavServiceService {
   }
 
   addFavoritePlayer(Player:any,user:any):Observable<any>{
-    console.log("i fav servcie",Player)
+    console.log("i fav servcie")
+    console.log(Player)
     let player={
-      "fullName":"divya",
-      "name":"yuvi",
-      "pid":2
+      "fullName":Player.name,
+      "name":Player.name,
+      "pid":(String)(Player.pid)
 
     }
 
-    return this.httpClient.post(this.localUrl+"user/"+"Divya/player",player);
+    return this.httpClient.post(this.localUrl+"user/"+"divya/player",player);
+    // return new Observable<any>();
     
   }
 
+
+  getAllFavplayers(){
+    return this.httpClient.get(this.localUrl+"user/"+"divya"+"/player");
+  }
 }
