@@ -30,6 +30,19 @@ export class SideNavigationComponent implements OnInit {
 
   }
 
+  isUser(){
+    return this.showuser
+  }
+
+  ngOnChanges(){
+    if(localStorage.getItem("username")!=null){
+      this.showuser=true
+      console.log(this.showuser)
+       this.user=localStorage.getItem("username")
+     }
+
+  }
+
   @HostBinding('class.expanded') expanded: boolean = false;
 
 }

@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { Router } from '@angular/router';
 import { USERNAME } from '../login/login.component';
 import { FavServiceService } from '../Services/fav-service.service';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-favorite',
@@ -23,6 +24,10 @@ export class FavoriteComponent implements OnInit {
     
   }
 
+  ngOnChanges(){
+    this.getFavPlayersList(localStorage.getItem("username"))
+  }
+
   constructor(private favService:FavServiceService,private router:Router){
 
   }
@@ -33,8 +38,9 @@ export class FavoriteComponent implements OnInit {
     console.log(username)
     this.favService.getAllFavplayers(username).subscribe((res:any)=>{
       this.players.push(res)
-      console.log(this.players)
+     
     })
+    console.log(this.players[0])
   }
 
 

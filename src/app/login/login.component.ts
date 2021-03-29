@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       error => {
         if (error.status === 404) {
           const errorMsg = error.error.message;
+          alert("Invalid Credentials")
         }
       }
     )
