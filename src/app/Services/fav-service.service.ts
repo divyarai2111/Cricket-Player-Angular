@@ -37,13 +37,13 @@ export class FavServiceService {
 
     }
 
-    return this.httpClient.post(this.localUrl+"user/"+"divya/player",player);
+    return this.httpClient.post(this.localUrl+"user/"+user+"/player",player);
     // return new Observable<any>();
     
   }
 
 
-  getAllFavplayers(){
-    return this.httpClient.get(this.localUrl+"user/"+"divya"+"/player");
+  getAllFavplayers(user:string){
+    return this.httpClient.get(this.localUrl+"user/"+user+"/player");
   }
 }

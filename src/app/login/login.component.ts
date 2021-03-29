@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../Models/User';
-import { UserService } from '../userservice.service';
+import { UserService, USER_NAME } from '../userservice.service';
 import { Router } from '@angular/router';
 export const TOKEN_NAME = "token_name";
+export const USERNAME="user_name"
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
       console.log("data--->"+data.toString);
       if (data) {
         localStorage.setItem(TOKEN_NAME,data["token"]);
+        localStorage.setItem(USER_NAME,this.user.username)
         this.router.navigate(["/dashboard"]);
       }
     },

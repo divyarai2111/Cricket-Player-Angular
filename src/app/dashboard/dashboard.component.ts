@@ -117,8 +117,14 @@ export class DashboardComponent implements OnInit {
     this.selected = !this.selected;
     // this.selectedChange.emit(this.selected);
     // this.buttonClicked.emit(this.selected);
-    this.favService.addFavoritePlayer(event,"Divya").subscribe((res)=>{
-      
+    let username=localStorage.getItem("username");
+    if(username==null){
+      alert("Kindly login to add favorites")
+      return
+
+    }
+    this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
+
     })
 
 

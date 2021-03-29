@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { USERNAME } from '../login/login.component';
 import { FavServiceService } from '../Services/fav-service.service';
 
 
@@ -10,10 +11,11 @@ import { FavServiceService } from '../Services/fav-service.service';
 export class FavoriteComponent implements OnInit {
 
   players:any=[]
-  user=''
+  
   ngOnInit(): void {
-
-    this.getFavPlayersList();
+  
+    // console.log(localStorage.getItem("username"))
+    this.getFavPlayersList(localStorage.getItem("username"));
     
   }
 
@@ -22,8 +24,10 @@ export class FavoriteComponent implements OnInit {
   }
 
 
-  getFavPlayersList(){
-    this.favService.getAllFavplayers().subscribe((res:any)=>{
+  getFavPlayersList(username:any){
+    // let user=localStorage.getItem("username");
+    // console.log(user)
+    this.favService.getAllFavplayers(username).subscribe((res:any)=>{
       this.players.push(res)
       console.log(this.players)
     })
