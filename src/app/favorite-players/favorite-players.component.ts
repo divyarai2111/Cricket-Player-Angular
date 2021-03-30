@@ -21,8 +21,9 @@ export class FavoritePlayersComponent implements OnInit {
     this.user = localStorage.getItem("username")
     // console.log(localStorage.getItem("username"))
     if (localStorage.getItem("username") == null) {
-
+      alert("Kindly login to open Fav player")
       this.router.navigate(["/login"]);
+      return;
     }
     this.getFavPlayersList(localStorage.getItem("username"));
 

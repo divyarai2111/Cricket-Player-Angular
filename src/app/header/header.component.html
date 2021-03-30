@@ -19,7 +19,7 @@
         <a  mat-button  *ngIf="!userlogin" routerLink="/login">Login</a>
         <!-- <a mat-list-item href="/login">Login</a> -->
         <!-- <a mat-list-item href="/dashboard">dashboard</a> -->
-        <a  mat-button  *ngIf="userlogin" routerLink="/logout"  (click)="logout()">Logout</a>
+        <a  mat-button  *ngIf="userlogin" routerLink="/logout"  (click)="logout()" (click)="refresh()">Logout</a>
         <!-- <a mat-list-item href="/logout" (click)="logout()">Logout</a> -->
     </mat-toolbar>
 

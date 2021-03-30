@@ -48,5 +48,8 @@ export class HeaderComponent implements OnInit {
     
     this.router.navigate([""]);
   }
+  refresh(): void {
+    window.location.reload();
+}
 
 }

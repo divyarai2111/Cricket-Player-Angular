@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { USER_NAME } from '../userservice.service';
 
 @Component({
   selector: 'app-side-navigation',
@@ -42,6 +43,15 @@ export class SideNavigationComponent implements OnInit {
      }
 
   }
+  ngOnDestroy() {
+    // prevent memory leak when component is destroyed
+    localStorage.removeItem(USER_NAME);
+    this.showuser=false;
+   
+}
+refresh(): void {
+  window.location.reload();
+}
 
   @HostBinding('class.expanded') expanded: boolean = false;
 

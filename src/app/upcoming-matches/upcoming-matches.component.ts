@@ -22,6 +22,12 @@ export class UpcomingMatchesComponent implements OnInit {
   date:any=''
   ngOnInit(): void {
     // this.date="March 29,2021"
+
+    if(localStorage.getItem("username")==null){
+      alert("Kindly Login to View Info")
+      this.router.navigate(["/login"]);
+      return;
+    }
     this.upcomingMatchesService.getAllUpcomingMatches().subscribe((res)=>{
       this.matches.push(res.matches)
       this.matchDate.push(res.matches[0].date)
@@ -32,7 +38,7 @@ export class UpcomingMatchesComponent implements OnInit {
   }
 
  
-  constructor(private upcomingMatchesService:UpcomingMatchesService) {
+  constructor(private upcomingMatchesService:UpcomingMatchesService, private router:Router) {
 
   }
 
