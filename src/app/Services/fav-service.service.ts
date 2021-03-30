@@ -49,7 +49,8 @@ export class FavServiceService {
       "name":player.name,
       "fullName": player.name
     }
-    return this.httpClient.post(this.localUrl+"delUser/"+user+"/player",delPlayer)
+    return this.httpClient.delete(this.localUrl+"user/"+user+"/player/"+player.pid);
+    // return this.httpClient.post(r)
   }
 
   getAllFavplayers(user:string){
