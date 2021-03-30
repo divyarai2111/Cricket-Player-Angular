@@ -226,6 +226,8 @@ table th[class*=col-] {
 .bg{
     background-image: url("../../assets/images/CrickBg.jpg"); 
     background-size: contain;
+    background-repeat: no-repeat;
+    
     
     /* backgro- image: url("../../assets/images/back2.jpg");   */
   
