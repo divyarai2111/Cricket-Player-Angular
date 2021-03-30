@@ -28,8 +28,12 @@ import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import { UpcomingMatchesComponent } from './upcoming-matches/upcoming-matches.component';
 import { FavoritePlayersComponent } from './favorite-players/favorite-players.component'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
+import { TableFilterPipe } from './upcoming-matches/table-filter.pipe';
+import { FilterPipe } from './upcoming-matches/filter-unique.pipe';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -39,9 +43,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     RegisterComponent,
     
     CourseDialogComponent,
-    
+    FilterPipe,
     UpcomingMatchesComponent,
-    
+    TableFilterPipe,
     FavoritePlayersComponent
 
 
@@ -63,7 +67,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatCardModule,
     MatAutocompleteModule,
     MatDialogModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    MatExpansionModule,
+    MatTableModule
   
 
 

@@ -11,9 +11,12 @@ import { PlayerService } from '../Services/player.service';
   styleUrls: ['./favorite-players.component.css']
 })
 export class FavoritePlayersComponent implements OnInit {
-
+  panelOpenState = false;
   players: any = []
   user: any = ''
+  data: any;
+  displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
+  columnsToDisplay: string[] = this.displayedColumns.slice();
   ngOnInit(): void {
     this.user = localStorage.getItem("username")
     // console.log(localStorage.getItem("username"))
@@ -42,6 +45,7 @@ export class FavoritePlayersComponent implements OnInit {
     this.players=[]
     this.favService.getAllFavplayers(username).subscribe((res: any) => {
       this.players.push(res)
+      this.data=this.players
 
     })
     // console.log(this.players[0])

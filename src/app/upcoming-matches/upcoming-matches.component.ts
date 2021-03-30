@@ -17,11 +17,16 @@ import { UpcomingMatchesService } from '../Services/upcoming-matches.service';
 export class UpcomingMatchesComponent implements OnInit {
 
   matches: any = []
+  matchDate :any=[]
   user: any = ''
+  date:any=''
   ngOnInit(): void {
+    // this.date="March 29,2021"
     this.upcomingMatchesService.getAllUpcomingMatches().subscribe((res)=>{
       this.matches.push(res.matches)
-      console.log(this.matches[0])
+      this.matchDate.push(res.matches[0].date)
+      console.log(this.matchDate)
+    
     })
 
   }

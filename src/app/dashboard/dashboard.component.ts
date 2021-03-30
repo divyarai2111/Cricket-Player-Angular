@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  
+
 
   @ViewChild(FavoriteComponent) favComponent:FavoriteComponent | undefined
   @Input() selected: boolean = false;

@@ -1,6 +1,6 @@
 
 .panel.panel-default.panel-table{
-    padding: 0;
+    padding: 10;
 }
 .panel-table>.table-responsive>table,
 .panel-table>table {
@@ -20,7 +20,9 @@
 }
 
 table {
-    background-color: #fff
+    background-color: #fff;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 caption {
     padding-top: 8px;

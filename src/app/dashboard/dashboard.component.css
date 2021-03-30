@@ -1,11 +1,4 @@
-.inline-block {
-  display: inline-table;
-  width: 150px;
-  height: 200px;
-  text-align: center;
-  /* height:250px; */
-  margin: 1%;
-}
+
 .bg{
   background-image: url("../../assets/images/CrickBg.jpg"); 
   background-size: contain;
@@ -27,6 +20,17 @@
   margin: 4px
   }
 
+
+  mat-card{
+    height: 200px;
+   
+      display: inline-table;
+      width: 150px;
+      text-align: center;
+      /* height:250px; */
+      margin: 1%;
+    
+  }
 mat-card img{
   
   height: 150px;
@@ -61,3 +65,4 @@ mat-card-content{
 .bottom{
   margin-bottom: 1%;
 }
+

@@ -1,5 +1,6 @@
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  user: string | null;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   userlogin:boolean=false;
   ngOnInit(): void {
     // console.log(localStorage.getItem("username"))
     if(localStorage.getItem("username")!=null){
+      this.user=localStorage.getItem("username")
      this.userlogin=true
     }
     
@@ -36,9 +39,14 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this.userlogin=false
+    this.user=localStorage.getItem("username")
     localStorage.clear();
-    
 
+
+  }
+  appname(){
+    
+    this.router.navigate([""]);
   }
 
 }
