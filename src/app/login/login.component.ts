@@ -24,6 +24,10 @@ export class LoginComponent implements OnInit {
     window.location.reload();
 }
 
+gotohome(){
+  this.router.navigate(["/dashboard"]);
+}
+
   login() {
     console.log("User----->"+this.user.username);
     this.userservice.login(this.user).subscribe(data => {
@@ -33,6 +37,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem(USER_NAME,this.user.username)
         this.router.navigate(["/dashboard"]);
         this.refresh();
+        this.router.navigate(["/dashboard"]);
       }
     },
       error => {

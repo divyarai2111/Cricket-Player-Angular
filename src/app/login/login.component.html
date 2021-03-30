@@ -41,7 +41,7 @@
     </mat-card-content>
     
     <mat-card-actions>
-      <button class="login-click" mat-raised-button color="accent" (click)="login()">
+      <button class="login-click" mat-raised-button color="accent" (click)="login()" (click)="gotohome()">
         Login
       </button>
       <button class="register-button" mat-raised-button color="accent" [routerLink]="['/register']">
