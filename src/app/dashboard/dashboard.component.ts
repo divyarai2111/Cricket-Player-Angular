@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     // this.getNotes()
-    
+ 
     this.playerService.getInitPlayer()
     //getting player id by passing null as name
     this.playerService.getInitPlayer().subscribe((response) => {

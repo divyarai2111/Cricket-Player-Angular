@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit {
 
   userlogin:boolean=false;
   ngOnInit(): void {
+
+    this.user=localStorage.getItem("username")
     // console.log(localStorage.getItem("username"))
     if(localStorage.getItem("username")!=null){
       this.user=localStorage.getItem("username")
@@ -23,6 +25,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngDoCheck(){
+    this.user=localStorage.getItem("username")
+
     if(localStorage.getItem("username")!=null){
       this.userlogin=true
      }else
@@ -31,12 +35,16 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnChanges(){
+    this.user=localStorage.getItem("username")
     // if(localStorage.getItem("username")!=null){
     //   this.userlogin=true
     //  }else
     //  this.userlogin=false
   }
 
+  ngAfterViewInit(){
+    this.user=localStorage.getItem("username")
+  }
   logout(){
     this.userlogin=false
     this.user=localStorage.getItem("username")

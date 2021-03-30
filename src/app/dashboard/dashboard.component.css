@@ -29,7 +29,7 @@
       background-color: whitesmoke;
       padding: 20px;
       width: -webkit-fill-available;
-      height: auto;
+      height: auto  ;
     
   }
   mat-card{
