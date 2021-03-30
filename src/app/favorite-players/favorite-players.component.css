@@ -225,8 +225,18 @@ table th[class*=col-] {
 
 .bg{
     background-image: url("../../assets/images/CrickBg.jpg"); 
-    background-size: contain;
+    /* background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
+    height: 900px;
+    width: 700px;
+    background-position: center */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    ;
     
     
     /* backgro- image: url("../../assets/images/back2.jpg");   */

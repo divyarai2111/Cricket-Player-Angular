@@ -1,6 +1,7 @@
 <div  class="bg">
         
 
+<<<<<<< HEAD
   <form>
     <mat-form-field  >
       <input class="searchbar" type="text" matInput #term (keyup)="getSearchText(term.value)">
@@ -29,6 +30,24 @@
     <div *ngIf="error">
       <img mat-card-image src="{{imgsrc}}">
     </div>
+=======
+            <form>
+              <mat-form-field  >
+                <input placeholder="Search your player" class="searchbar" type="text" matInput #term (keyup)="getSearchText(term.value)">
+                <mat-placeholder></mat-placeholder>
+                <mat-icon matSuffix style="font-size: large">search</mat-icon>
+              </mat-form-field>
+            </form>
+            
+            <mat-card class="inline-block" *ngFor="let note of playerDisplayed, let i = index">
+
+
+              <mat-card-header class="inline-block-header">
+
+                <mat-card-title>
+                  {{note.name}}
+                </mat-card-title>
+>>>>>>> b26201c4b094585987126bee3550be993635b7ed
 
 
     <mat-card-content>
@@ -71,6 +90,20 @@
   No results
 </div>
 
+<<<<<<< HEAD
+=======
+                <button id="favourite+{{i}}" class="heart" mat-icon-button (click)="toggleSelected(i,note)"
+              data-toggle="tooltip" data-placement="top" title="Add to favourites">
+              <mat-icon *ngIf="playerDisplayed[i].favourite" aria-label="Example icon-button with a heart icon">
+                favorite
+              </mat-icon>
+              <mat-icon *ngIf="!playerDisplayed[i].favourite" aria-label="Example icon-button with a heart icon">
+                favorite_border
+              </mat-icon>
+            </button>
+              </mat-card-content>
+            </mat-card>
+>>>>>>> b26201c4b094585987126bee3550be993635b7ed
 
 
 

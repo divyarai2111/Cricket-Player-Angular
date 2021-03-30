@@ -25,13 +25,16 @@
 
 
   .searchbar{
-
       border-radius: 25px;
-      border: 2px solid #73AD21;
+      border: 2px solid #279188;
       background-color: whitesmoke;
       padding: 20px;
       width: -webkit-fill-available;
       height: auto  ;
+      color: green;
+      opacity: 0.5;
+      
+
     
   }
   mat-card{
