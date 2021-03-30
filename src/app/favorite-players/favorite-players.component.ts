@@ -45,8 +45,17 @@ export class FavoritePlayersComponent implements OnInit {
     // console.log(username)
     this.players=[]
     this.favService.getAllFavplayers(username).subscribe((res: any) => {
-      this.players.push(res)
-      this.data=this.players
+     console.log(res)
+      res.forEach((element:any) => {
+        this.playerService.getInitPlayersStats(element.pid).subscribe((resp)=>{
+          console.log(resp)
+          this.players.push(resp)
+        })
+        // this.data=this.players
+        
+      });
+
+     
 
     })
     // console.log(this.players[0])

@@ -108,17 +108,7 @@ export class DashboardComponent implements OnInit {
       // console.log(err)
     }
     )
-    // this.noteService.getNotes().subscribe((response) => {
-    //   // console.log(response.reverse())
-    //   if (response)
-    //     this.noteList = response.reverse()
-    //   else
-    //     this.errMessage = "Not able to retrieve notes"
-    // }, error => {
-    //   console.log(error)
-    //   this.errMessage = 'Http failure response for http://localhost:3000/notes: 404 Not Found'
-    //   return;
-    // })
+   
   }
 
   toggleSelected(key:any,event:any) {
@@ -212,6 +202,12 @@ export class DashboardComponent implements OnInit {
         , (err) => {
           console.log(err)
         })
+    }
+    else{
+  
+this.getAll()
+      
+
     }
   }
 

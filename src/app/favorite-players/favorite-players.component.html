@@ -1,29 +1,5 @@
-<!-- <div class="" id="page-wrapper">
-  
-    <div class="container-fluid">
-   -->
-
-       
-<!-- <mat-accordion *ngFor="let player of players[0]">
-    <mat-expansion-panel (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{player.name}}
-        </mat-panel-title>
-        <mat-panel-description>
-           <button mat-raised-button color="primary" class="bottom" (click)="openDialog(player)">View Info</button> 
-           <button mat-raised-button color="primary" class="bottom" (click)="delete(player)">Remove</button>
-                                                      
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>This is the primary content of the panel.</p>
-    </mat-expansion-panel>
-    
-  </mat-accordion> -->
-
-
-            <div class="col-sm-12 table">
+<!-- 
+            <div class="col-sm-12">
                 <div class="row">
 
                     <div class="col-md-6">
@@ -65,8 +41,76 @@
                         </div>
                     </div>
                 </div>
-            </div>
-     
-    <!-- </div>
+            </div> -->
 
-</div> -->
+
+            <div  class="bg">
+        
+
+             
+                <mat-card class="inline-block" *ngFor="let note of players, let i = index">
+    
+    
+                  <mat-card-header class="inline-block-header">
+    
+                    <mat-card-title>
+                      {{note.fullName}}
+                    </mat-card-title>
+    
+                  </mat-card-header>
+                  <div *ngIf="note.imageURL!=null; else elseBlock">
+                    <img mat-card-image src="{{note.imageURL}}" alt="" >
+                  </div>
+                  <ng-template #elseBlock>
+                    <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
+                  </ng-template>
+                 
+    
+    
+                  <mat-card-content>
+                    <table>
+                      <tr>
+                    
+                      </tr>
+    
+                    </table>
+    
+    
+                    <br>
+                    <button mat-raised-button color="primary" class="bottom" (click)="openDialog(note)">View Info</button>
+               
+                    <button id="favourite+{{i}}" class="heart" mat-icon-button (click)="delete(note)"
+                  >
+                  <mat-icon  aria-label="Example icon-button with a heart icon">
+                    favorite
+                  </mat-icon>
+                 
+                </button>
+                  </mat-card-content>
+                </mat-card>
+    
+    
+    
+             
+    
+    
+    </div>
+    
+    <!-- <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+                  [animation]="'slide'">
+      <mdb-carousel-item *ngFor="let item of slides; let i = index">
+        <div class="col-md-4" *ngFor="let card of item; let cardIndex = index">
+          <mdb-card class="my-1">
+            <mdb-card-img [src]="card.img" alt="Card image cap"></mdb-card-img>
+            <mdb-card-body>
+              <mdb-card-title>
+                <h4>{{card.title}}</h4>
+              </mdb-card-title>
+              <p>{{card.description}}</p>
+              <a href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>{{card.buttonText}}</a>
+            </mdb-card-body>
+          </mdb-card>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel> -->
+    
