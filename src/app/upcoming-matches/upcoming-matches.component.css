@@ -218,3 +218,7 @@ table th[class*=col-] {
     color: #fff;
     box-shadow: none;
 }
+
+.row-stat{
+    padding: 20px 45px 0px 45px;
+}

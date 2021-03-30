@@ -9,15 +9,14 @@ import { Pipe, PipeTransform } from "@angular/core";
     transform(value: any, args?: any): any {
   
 
-
+    
 
       // Remove the duplicate elements
       let uniqueArray = value.filter(function (el:any, index:any, array:any) { 
         return array.indexOf (el) == index;
       });
   
-      console.log("In filter")
-      console.log(uniqueArray)
+      
       return uniqueArray;
     }
   }
