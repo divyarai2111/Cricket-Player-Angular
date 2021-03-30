@@ -7,7 +7,16 @@ mat-card{
     background-color:white;
     margin: auto;
     margin-bottom: 20vh;
+    opacity: 0.8;
 }
+.bg{
+    background-image: url("../../assets/images/back-login2.jpg"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    /* backgro- image: url("../../assets/images/back2.jpg");   */
+  
+  }
 
 mat-card-title{
     color: rgb(89, 19, 219);
@@ -17,7 +26,7 @@ mat-card-title{
     padding-top: 3vh;
 
 }
-my-form{
+login-form{
     display: flex;
     flex-direction:  column;
     width: 20vw;

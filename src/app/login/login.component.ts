@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  refresh(): void {
+    window.location.reload();
+}
 
   login() {
     console.log("User----->"+this.user.username);
