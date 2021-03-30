@@ -3,7 +3,7 @@
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
             <mat-icon>menu</mat-icon>
         </button>
-        <span>CricPlayer Application</span>
+        <span routerLink="/dashboard">CricPlayer Application </span>
         <span class="example-spacer"></span>
         <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
             <mat-icon>favorite</mat-icon>
@@ -18,7 +18,7 @@
         <a  mat-button  *ngIf="!userlogin" routerLink="/login">Login</a>
         <!-- <a mat-list-item href="/login">Login</a> -->
         <!-- <a mat-list-item href="/dashboard">dashboard</a> -->
-        <a  mat-button  *ngIf="userlogin" routerLink="/logout"  (click)="logout()">Logout</a>
+        <a  mat-button  *ngIf="userlogin" routerLink="/logout"  (click)="logout()" (click)="refresh()">Logout</a>
         <!-- <a mat-list-item href="/logout" (click)="logout()">Logout</a> -->
     </mat-toolbar>
 

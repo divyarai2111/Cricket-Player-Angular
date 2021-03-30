@@ -32,6 +32,7 @@ export class UserService {
 
   logout() {
     sessionStorage.removeItem(USER_NAME);
+    localStorage.removeItem(USER_NAME);
     sessionStorage.clear();
     localStorage.removeItem("token_name");
     localStorage.clear();

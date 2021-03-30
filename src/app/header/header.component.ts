@@ -40,5 +40,8 @@ export class HeaderComponent implements OnInit {
     
 
   }
+  refresh(): void {
+    window.location.reload();
+}
 
 }
