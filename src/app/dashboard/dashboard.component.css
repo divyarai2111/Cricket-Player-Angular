@@ -37,7 +37,7 @@
   mat-card{
     /* height: 200px; */
    
-      display: inline-table;
+      display: inline-grid;
       width: 150px;
       text-align: center;
       /* height:250px; */

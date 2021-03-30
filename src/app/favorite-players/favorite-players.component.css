@@ -280,7 +280,7 @@ table th[class*=col-] {
   
   mat-form-field{
   width: 95%;
-  margin-top: 10px;
+  margin-top: 0px;
   padding: 1%;
   
   }
