@@ -27,6 +27,7 @@ import { MatDialogModule  } from '@angular/material/dialog';
 import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import { UpcomingMatchesComponent } from './upcoming-matches/upcoming-matches.component';
 import { FavoritePlayersComponent } from './favorite-players/favorite-players.component'
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { FavoritePlayersComponent } from './favorite-players/favorite-players.co
     MatInputModule,
     MatCardModule,
     MatAutocompleteModule,
-    MatDialogModule
+    MatDialogModule,
+    MDBBootstrapModule
   
 
 

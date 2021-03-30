@@ -6,26 +6,38 @@
 
                     <div class="col-md-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading panel-heading-no-divider">Hello <span
-                                    class="panel-subtitle">List of your fav players</span>
+                            <div class="panel-heading panel-heading-no-divider"><span class="panel-subtitle">List of
+                                    your Upcoming Matches</span>
                             </div>
 
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Player Id</th>
-                                            <th>Player Name</th>
-                                            <th>View Info</th>
-                                            <th>Delete from Favorites</th>
+                                            <th>Date</th>
+                                            <th>Team1</th>
+                                            <th>Team2</th>
+                                           
+                                            <th>Toss won</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      
-                                        <tr *ngFor="let player of players[0]">
-                                            <td>{{player.name}}</td>
+
+                                        <tr *ngFor="let match of matches[0]">
                                             
-                                        </tr> 
+                                                <td>{{match.date}}</td>
+                                                <td>{{match.team_1}}</td>
+                                                <td> {{match.team-2}}</td>
+                                            
+                                                <td>{{match.toss_winner_team}}</td>
+                                                <td *ngIf="match.matchStarted; else elseBlock">Match Started</td>
+                                                <ng-template #elseBlock>
+                                                    <td>Match not started</td>
+                                                </ng-template>
+                                          
+
+                                        </tr>
 
 
 
@@ -33,7 +45,7 @@
                                     </tbody>
                                 </table>
 
-                                {{players[0].length}}
+
                             </div>
                         </div>
                     </div>
@@ -49,5 +61,5 @@
 </mat-card> -->
 
 <!-- <div *ngFor="let player of players[0]"> -->
-  
+
 <!-- </div> -->

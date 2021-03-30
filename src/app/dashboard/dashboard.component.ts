@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  
+
   @ViewChild(FavoriteComponent) favComponent:FavoriteComponent | undefined
   @Input() selected: boolean = false;
   @Output() selectedChange = new EventEmitter<boolean>();
@@ -34,7 +36,8 @@ export class DashboardComponent implements OnInit {
   // // noteList: Array<Note>;
   myControl = new FormControl();
   options: string[] = ['Cash', 'Credit Card', 'Paypal'];
-  playerDisplayed: Array<any> = [];
+  playerDisplayed :any=[];
+
   constructor(private playerService: PlayerService,
     private favService:FavServiceService,
     public dialog: MatDialog,
@@ -61,6 +64,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     // this.getNotes()
+    
     this.playerService.getInitPlayer()
     //getting player id by passing null as name
     this.playerService.getInitPlayer().subscribe((response) => {
@@ -72,7 +76,7 @@ export class DashboardComponent implements OnInit {
 
           //add this statistic in my mongodb
           this.playerService.addInitPlayersStats(res).subscribe((re) => {
-            //  console.log(re)
+             console.log(re)
           })
         })
         // console.log(element)
@@ -81,9 +85,7 @@ export class DashboardComponent implements OnInit {
     }, (err) => {
       // console.log(err)
     })
-
-
-    this.getAll()
+     this.getAll()
 
 
   }
@@ -97,7 +99,7 @@ export class DashboardComponent implements OnInit {
       response.forEach((element: any) => {
         if (element != undefined)
           this.playerDisplayed.push(element)
-        // console.log(element)
+        console.log(element)
       });
 
       // console.log(response)
@@ -119,30 +121,56 @@ export class DashboardComponent implements OnInit {
     // })
   }
 
-  toggleSelected(event: any,i:any) {
-    console.log(i)
-    console.log(localStorage.getItem("username"))
-    if(localStorage.getItem("username")==null){
-      this.router.navigate(["/login"]);
-    }
-    console.log(event)
-    if (event === i) {
-      this.selected = !this.selected;
-     } else {
-     this.selected = this.selected;
-     }
-  
-    // this.selectedChange.emit(this.selected);
-    // this.buttonClicked.emit(this.selected);
+  toggleSelected(key:any,event:any) {
+    // console.log(localStorage.getItem("username"))
     let username=localStorage.getItem("username");
-    if(username==null){
-      alert("Kindly login to add favorites")
-      return
-
+    if(localStorage.getItem("username")==null){
+      if(username==null){
+        alert("Kindly login to add favorites")
+        this.router.navigate(["/login"]);
+  
+      }
+    
     }
-    this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
 
-    })
+
+    if(this.playerDisplayed[key].favourite==undefined){
+      this.playerDisplayed[key].favourite=true;  
+      this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
+
+      },(err)=>{
+        alert("You have already added to fav list")
+      })
+     
+           
+    }
+   
+    else{
+      if(this.playerDisplayed[key].favourite==true){
+        this.playerDisplayed[key].favourite=false;
+        this.favService.delete(event,username).subscribe((res)=>{
+
+        },(err)=>{
+          alert("You have already added to fav list")
+        })
+       
+      }else
+
+     {
+      this.playerDisplayed[key].favourite=true;
+      this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
+
+      },(err)=>{
+        alert("You have already added to fav list")
+      })
+     } 
+     
+    }
+   
+  
+  
+  
+   
 
 
 
@@ -192,6 +220,15 @@ export class DashboardComponent implements OnInit {
   openDialog(event: any) {
   
     // console.log(event)
+
+    console.log(localStorage.getItem("username"))
+    if(localStorage.getItem("username")==null){
+      alert("Kindly Login to View Info")
+      this.router.navigate(["/login"]);
+      return;
+    }
+
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
      event
@@ -201,6 +238,9 @@ export class DashboardComponent implements OnInit {
 
   
   }
+
+
+  
 }
 
 

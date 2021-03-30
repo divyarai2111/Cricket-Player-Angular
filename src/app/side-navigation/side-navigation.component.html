@@ -3,19 +3,13 @@
 
       <li class="user-pro" *ngIf="isUser()">
           <a href="#" class="text-center">
-              <!-- <div class="profile-img">
-                  <img src="../../assets/images/dummy.jpg"/>
-              </div> -->
+  
               <span>Welcome  {{user}}</span>
               <small class="text-center"></small>
           </a>
       </li>
       <li><a [routerLink]="['/dashboard']"  class="waves-effect"><i class="fa fa-home"></i> <span
               class="hide-menu">Home</span></a></li>
-      <!-- <li class=""><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-envelope-o"></i> <span
-              class="hide-menu"> Mailbox <span class="fa arrow"></span><span
-              class="label label-rouded label-danger pull-right">6</span></span></a>
-      </li> -->
       <li>
           <a [routerLink]="['/fav']">
               <i class="fa fa-edit"></i>
@@ -26,3 +20,5 @@
      
   </ul>
 </div>
+
+

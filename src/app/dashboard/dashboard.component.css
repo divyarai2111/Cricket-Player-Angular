@@ -1,63 +1,63 @@
 .inline-block {
-    display: inline-table;
-    width: 200px;
-    height: 220px;
-    text-align: center;
-    /* height:250px; */
-    margin: 1%;
-  }
-  .bg{
-    background-image: url("../../assets/images/CrickBg.jpg"); 
-    background-size: contain;
-    
-    /* backgro- image: url("../../assets/images/back2.jpg");   */
+  display: inline-table;
+  width: 150px;
+  height: 200px;
+  text-align: center;
+  /* height:250px; */
+  margin: 1%;
+}
+.bg{
+  background-image: url("../../assets/images/CrickBg.jpg"); 
+  background-size: contain;
+  
+  /* backgro- image: url("../../assets/images/back2.jpg");   */
 
+}
+
+.inline-block-header {
+  display: inline-block;
+  /* width: 200px;
+  height:50px; */
+  margin: 1%;
+}
+
+.example-card {
+  display: inline-block;
+  max-width: 500px;
+  margin: 4px
   }
 
-  .inline-block-header {
-    display: inline-block;
-    /* width: 200px;
-    height:50px; */
-    margin: 1%;
-  }
-
-  .example-card {
-    display: inline-block;
-    max-width: 500px;
-    margin: 4px
-    }
-
-  mat-card img{
-    
-    height: 150px;
-    object-fit: contain; /*this makes the image in src fit to the size specified below*/
-    width: 40%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-    height: 0%;
-  }
+mat-card img{
+  
+  height: 150px;
+  object-fit: contain; /*this makes the image in src fit to the size specified below*/
+  width: 150px; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height:150px;
+}
 
 mat-form-field{
-  width: 95%;
-  margin-top: 10px;
-  padding: 1%;
+width: 95%;
+margin-top: 10px;
+padding: 1%;
 
 }
 mat-card-actions{
-  display: flex; justify-content: start; flex-direction: column; flex-wrap: wrap;
+display: flex; justify-content: start; flex-direction: column; flex-wrap: wrap;
 
 }
 
-  mat-card-title{
-    flex-shrink: 0;
-    color:green;
-    font-size:40px
-    }
-
-  mat-card-content{
-    /* display: wrap; */
-    flex-grow: 1;
-    overflow: auto;
+mat-card-title{
+  flex-shrink: 0;
+  color:green;
+  font-size:40px
   }
 
-  .bottom{
-    margin-bottom: 1%;
-  }
+mat-card-content{
+  /* display: wrap; */
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.bottom{
+  margin-bottom: 1%;
+}

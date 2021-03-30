@@ -14,7 +14,7 @@ export class SideNavigationComponent implements OnInit {
 
     if(localStorage.getItem("username")!=null){
      this.showuser=true
-     console.log(this.showuser)
+    //  console.log(this.showuser)
 
       this.user=localStorage.getItem("username")
     }
@@ -24,7 +24,7 @@ export class SideNavigationComponent implements OnInit {
   ngDoCheck(){
     if(localStorage.getItem("username")!=null){
       this.showuser=true
-      console.log(this.showuser)
+      // console.log(this.showuser)
        this.user=localStorage.getItem("username")
      }
 
@@ -37,7 +37,7 @@ export class SideNavigationComponent implements OnInit {
   ngOnChanges(){
     if(localStorage.getItem("username")!=null){
       this.showuser=true
-      console.log(this.showuser)
+      // console.log(this.showuser)
        this.user=localStorage.getItem("username")
      }
 

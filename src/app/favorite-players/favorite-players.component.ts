@@ -39,6 +39,7 @@ export class FavoritePlayersComponent implements OnInit {
   getFavPlayersList(username: any) {
     // let user=localStorage.getItem("username");
     // console.log(username)
+    this.players=[]
     this.favService.getAllFavplayers(username).subscribe((res: any) => {
       this.players.push(res)
 
@@ -74,6 +75,8 @@ export class FavoritePlayersComponent implements OnInit {
   delete(event: any) {
     this.favService.delete(event, this.user).subscribe((res: any) => {
       this.getFavPlayersList(this.user);
+    },(err)=>{
+      alert("Cannot delete")
     })
   }
 }
