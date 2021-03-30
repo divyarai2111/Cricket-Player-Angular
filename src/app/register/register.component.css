@@ -1,0 +1,40 @@
+mat-card{
+    display: flex;
+    flex-direction:  column;
+    height: 50vh;
+    width: 40vw;
+    text-align: center;
+    background-color:white;
+    margin: auto;
+    margin-bottom: 20vh;
+    opacity: 0.8;
+}
+.bg{
+    background-image: url("../../assets/images/back-login2.jpg"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    /* backgro- image: url("../../assets/images/back2.jpg");   */
+  
+  }
+
+mat-card-title{
+    color: rgb(89, 19, 219);
+    font-size: 1.2em;
+    font-family: 'Acme, sans-serif';
+    padding-left: 15vw;
+    padding-top: 3vh;
+
+}
+login-form{
+    display: flex;
+    flex-direction:  column;
+    width: 20vw;
+    margin: auto;
+
+}
+
+.label{
+    color: rgb(89, 19, 219);
+    font-family: 'Acme, sans-serif';    
+}
