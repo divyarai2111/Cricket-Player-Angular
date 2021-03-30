@@ -1,0 +1,58 @@
+<div class="" id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row row-stat">
+            <div class="col-sm-12">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading panel-heading-no-divider">Hello  {{user}} <span
+                                    class="panel-subtitle">List of your fav players</span>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Player Id</th>
+                                            <th>Player Name</th>
+                                           <th>View Info</th>
+                                            <th>Delete from Favorites</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                        <tr *ngFor="let player of players[0]">
+                                            <td>{{player.pid}}</td>
+                                            <td>{{player.name}}</td>
+                                            <td>  <button mat-raised-button color="primary" class="bottom" (click)="openDialog(player)">View Info</button>
+                                            </td>
+                                            <td>  <button mat-raised-button color="primary" class="bottom" (click)="delete(player)">Remov</button>
+                                            </td>
+                                            
+                                        </tr> 
+
+
+
+
+                                    </tbody>
+                                </table>
+
+                                {{players[0].length}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 
+<mat-card class="inline-block" inline-block *ngFor="let note of players[0]">
+    {{note}}
+</mat-card> -->
+
+<!-- <div *ngFor="let player of players[0]"> -->
+  
+<!-- </div> -->

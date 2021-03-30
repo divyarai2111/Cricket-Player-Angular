@@ -24,7 +24,9 @@ import { PlayerService } from './Services/player.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule  } from '@angular/material/dialog';
-import { CourseDialogComponent } from './course-dialog/course-dialog.component'
+import { CourseDialogComponent } from './course-dialog/course-dialog.component';
+import { UpcomingMatchesComponent } from './upcoming-matches/upcoming-matches.component';
+import { FavoritePlayersComponent } from './favorite-players/favorite-players.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +37,11 @@ import { CourseDialogComponent } from './course-dialog/course-dialog.component'
     LoginComponent,
     RegisterComponent,
     
-    CourseDialogComponent
+    CourseDialogComponent,
+    
+    UpcomingMatchesComponent,
+    
+    FavoritePlayersComponent
 
 
   ],

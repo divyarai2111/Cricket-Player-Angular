@@ -43,6 +43,10 @@ export class FavServiceService {
   }
 
 
+  delete(player:any,user:any){
+    return this.httpClient.post(this.localUrl+"delUser/"+user+"/player",player);
+  }
+
   getAllFavplayers(user:string){
     return this.httpClient.get(this.localUrl+"user/"+user+"/player");
   }

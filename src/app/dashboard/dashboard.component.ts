@@ -120,6 +120,7 @@ export class DashboardComponent implements OnInit {
   }
 
   toggleSelected(event: any,i:any) {
+    console.log(i)
     console.log(localStorage.getItem("username"))
     if(localStorage.getItem("username")==null){
       this.router.navigate(["/login"]);
