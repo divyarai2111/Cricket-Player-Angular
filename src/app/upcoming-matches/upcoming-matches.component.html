@@ -9,7 +9,7 @@
                         <select class="form-control"
                                 [(ngModel)]="date">
                           <option></option>      
-                          <option  *ngFor="let match of matchDate  | filterUnique " value={{match.date}}>{{match.date |date}}</option>
+                          <option  *ngFor="let match of matches[0]  | filterUnique : date" value={{match.date}}>{{match.date |date}}</option>
                         </select>
                       </div>  
 

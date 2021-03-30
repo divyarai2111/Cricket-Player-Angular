@@ -21,6 +21,17 @@
   }
 
 
+  .searchbar{
+
+  
+      border-radius: 25px;
+      border: 2px solid #73AD21;
+      background-color: whitesmoke;
+      padding: 20px;
+      width: -webkit-fill-available;
+      height: auto;
+    
+  }
   mat-card{
     height: 200px;
    
