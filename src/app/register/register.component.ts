@@ -38,7 +38,15 @@ user: User;
     {
     this.service.register(this.user)
       .subscribe(data => {
-        this.router.navigate(["/login"]);
+        // this.router.navigate(["/login"]);
+        let event= "Registration Successful";
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+         event: event,
+         route: "/login"
+      };
+      
+      const dialogRef = this.dialog.open(CommonDialogComponent,dialogConfig);
 
       },
         error => {
