@@ -23,6 +23,19 @@ user: User;
   }
   register() {
     console.log(this.user);
+
+
+    if(this.user.password!= this.user.password2){
+      let event= "Password do not match";
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+       event: event
+    };
+    
+    const dialogRef = this.dialog.open(CommonDialogComponent,dialogConfig);
+    }
+    else
+    {
     this.service.register(this.user)
       .subscribe(data => {
         this.router.navigate(["/login"]);
@@ -38,6 +51,7 @@ user: User;
         const dialogRef = this.dialog.open(CommonDialogComponent,dialogConfig);
       
         })
+      }
   }
 
 
