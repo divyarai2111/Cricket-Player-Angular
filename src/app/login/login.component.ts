@@ -33,6 +33,24 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log("User----->" + this.user.username);
+
+    if(this.user.username=='' && this.user.password==''){
+    
+      let event = "Username and password cannot be blank";
+
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        event: event,
+        route: "/login"
+      };
+
+      const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+      this.router.navigate(["/login"]);
+      return;
+
+    }
+
+    else{
     this.userservice.login(this.user).subscribe(data => {
       console.log("data--->" + data.toString);
       if (data) {
@@ -59,6 +77,6 @@ export class LoginComponent implements OnInit {
           // alert("Invalid Credentials")
         }
       }
-    )
+    )}
   }
 }
