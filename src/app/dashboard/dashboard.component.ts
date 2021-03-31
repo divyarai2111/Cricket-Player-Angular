@@ -260,12 +260,13 @@ this.getAll()
   
       const dialogConfig = new MatDialogConfig();
       dialogConfig.data = {
-        event: event
+        event: event,
+        route: "/login"
       };
 
       const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
       // alert("")
-      this.router.navigate(["/login"]);
+      // this.router.navigate(["/login"]);
       return;
     }
 
