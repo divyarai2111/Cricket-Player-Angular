@@ -32,11 +32,23 @@
       width: -webkit-fill-available;
       height: auto  ;
       color: green;
-      opacity: 0.5;
-      
-
-    
+      opacity: 0.5;  
   }
+
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+
+  .title{
+    opacity: 0.7;
+  }
+  
+
   mat-card{
     /* height: 200px; */
    

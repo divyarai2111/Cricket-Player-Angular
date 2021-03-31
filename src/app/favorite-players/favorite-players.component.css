@@ -316,5 +316,12 @@ table th[class*=col-] {
   .bottom{
     margin-bottom: 1%;
   }
+
+  .title{
+    opacity: 0.7;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
   
   
