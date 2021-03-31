@@ -1,27 +1,18 @@
 
     <mat-toolbar color="primary">
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-            <!-- <mat-icon>menu</mat-icon> -->
-        </button>
-        <span (click)="appname()">CricPlayer  {{user}}</span>
-        <span class="example-spacer"></span>
-        <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-            <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>share</mat-icon>
-        </button> -->
         
-        
-        <!-- <a  mat-button  routerLink="/register">Register</a> -->
+        </button>
+        <span (click)="appname()">CricPlayer </span>
+        <span class="example-spacer" *ngIf="userlogin"> Welcome {{user}}</span>
+        <span class="example-spacer" *ngIf="!userlogin"> </span>
+      
         <a  mat-button routerLink="/fav">Fav Player</a>
         <a  mat-button routerLink="/upcomingMatches">Upcoming Matches</a>
         <a  mat-button  *ngIf="!userlogin" routerLink="/login">Login</a>
-        <!-- <a mat-list-item href="/login">Login</a> -->
-        <!-- <a mat-list-item href="/dashboard">dashboard</a> -->
+       
         <a  mat-button  *ngIf="userlogin" routerLink="/logout"  (click)="logout()" (click)="refresh()">Logout</a>
-        <!-- <a mat-list-item href="/logout" (click)="logout()">Logout</a> -->
+      
     </mat-toolbar>
-
 
 

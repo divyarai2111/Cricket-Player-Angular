@@ -57,6 +57,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([""]);
   }
   refresh(): void {
+    this.userlogin=false
     window.location.reload();
 }
 

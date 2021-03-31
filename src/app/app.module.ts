@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,6 +21,7 @@ import { FavServiceService } from './Services/fav-service.service';
 import { UserService } from './userservice.service';
 import { PlayerService } from './Services/player.service';
 import { CommonModule } from '@angular/common';
+// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule  } from '@angular/material/dialog';
 import { CourseDialogComponent } from './course-dialog/course-dialog.component';
@@ -41,7 +41,6 @@ import { FilterPipe } from './upcoming-matches/filter-unique.pipe';
     SideNavigationComponent,
     LoginComponent,
     RegisterComponent,
-    
     CourseDialogComponent,
     FilterPipe,
     UpcomingMatchesComponent,
@@ -67,7 +66,7 @@ import { FilterPipe } from './upcoming-matches/filter-unique.pipe';
     MatCardModule,
     MatAutocompleteModule,
     MatDialogModule,
-    MDBBootstrapModule,
+    MDBBootstrapModule.forRoot(),
     MatExpansionModule,
     MatTableModule
   

@@ -1,5 +1,6 @@
 .example-spacer {
     flex: 1 1 auto;
+    text-align: center;
   }
 
 .headerwrapper {
@@ -27,3 +28,4 @@ a.btn.btn-social-icon.btn-github {
   border: 1px solid #fff;
   margin: 10px;
 }
+
