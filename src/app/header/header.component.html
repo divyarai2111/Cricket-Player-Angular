@@ -1,17 +1,15 @@
 
     <mat-toolbar color="primary">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <a  mat-raised-button color="warn" routerLink="/dashboard">CricPlayer</a>
         
-        </button>
-        <span (click)="appname()">CricPlayer </span>
         <span class="example-spacer" *ngIf="userlogin"> Welcome {{user}}</span>
         <span class="example-spacer" *ngIf="!userlogin"> </span>
-      
-        <a  mat-button routerLink="/fav">Fav Player</a>
-        <a  mat-button routerLink="/upcomingMatches">Upcoming Matches</a>
-        <a  mat-button  *ngIf="!userlogin" routerLink="/login">Login</a>
+        <div class="example-button-row">
+        <a  mat-raised-button color="warn" routerLink="/fav">Your Favourites</a>
+        <a  mat-raised-button color="warn" routerLink="/upcomingMatches">Upcoming Matches</a>
+        <a  mat-raised-button color="warn" *ngIf="!userlogin" routerLink="/login">Login</a></div>
        
-        <a  mat-button  *ngIf="userlogin" routerLink="/logout"  (click)="logout()" (click)="refresh()">Logout</a>
+        <a  mat-raised-button color="warn" *ngIf="userlogin" routerLink="/logout"  (click)="logout()" (click)="refresh()">Logout</a>
       
     </mat-toolbar>
 

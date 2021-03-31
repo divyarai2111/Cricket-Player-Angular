@@ -8,13 +8,14 @@
       <mat-icon matSuffix style="font-size: 1.2em">search</mat-icon>
     </mat-form-field>
   </form>
-  
+  <mat-toolbar class="title">
+    <span>Top favourites Players Around the World</span>
+  </mat-toolbar>
   <div *ngIf="playerDisplayed">
   <mat-card class="inline-block" *ngFor="let note of playerDisplayed, let i = index">
 
 
     <mat-card-header class="inline-block-header">
-
       <mat-card-title>
         {{note.name}}
       </mat-card-title>
