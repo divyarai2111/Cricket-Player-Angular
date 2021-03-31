@@ -25,6 +25,17 @@ user: User;
     console.log(this.user);
 
 
+    if(this.user.email=='' && this.user.password=='' && this.user.username=='' && this.user.password2==''){
+      let event= "Fields should not be blank";
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+       event: event,
+       route:"/register"
+    };
+    
+    const dialogRef = this.dialog.open(CommonDialogComponent,dialogConfig);
+    }
+    else
     if(this.user.password!= this.user.password2){
       let event= "Password do not match";
       const dialogConfig = new MatDialogConfig();
