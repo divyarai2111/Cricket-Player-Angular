@@ -32,6 +32,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import { TableFilterPipe } from './upcoming-matches/table-filter.pipe';
 import { FilterPipe } from './upcoming-matches/filter-unique.pipe';
+import { DummyComponent } from './dummy/dummy.component';
+import { CommonDialogComponent } from './common-dialog/common-dialog.component';
 
 @NgModule({ 
   declarations: [
@@ -45,7 +47,9 @@ import { FilterPipe } from './upcoming-matches/filter-unique.pipe';
     FilterPipe,
     UpcomingMatchesComponent,
     TableFilterPipe,
-    FavoritePlayersComponent
+    FavoritePlayersComponent,
+    DummyComponent,
+    CommonDialogComponent
 
 
   ],

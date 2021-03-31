@@ -14,9 +14,6 @@ export class CourseDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) data:any) { 
       this.description = data.event;
       // if(data.event!=null)
-      console.log("In description")
-      console.log(this.description)
-     
     }
 
   ngOnInit(): void {

@@ -9,6 +9,7 @@ import { FavServiceService } from '../Services/fav-service.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 import { Router } from '@angular/router';
+import { CommonDialogComponent } from '../common-dialog/common-dialog.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -116,12 +117,22 @@ export class DashboardComponent implements OnInit {
     let username=localStorage.getItem("username");
     if(localStorage.getItem("username")==null){
       if(username==null){
-        alert("Kindly login to add favorites")
+        let event = "Kindly login to add to Fav player";
+  
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+          event: event,
+          route:"/login"
+        };
+  
+        const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+        
         this.router.navigate(["/login"]);
   
       }
     
     }
+    else
 
 
     if(this.playerDisplayed[key].favourite==undefined){
@@ -129,7 +140,16 @@ export class DashboardComponent implements OnInit {
       this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
 
       },(err)=>{
-        alert("You have already added to fav list")
+        let event = "You have already added "+   this.playerDisplayed[key].name +" to fav list";
+  
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+          event: event,
+          route: "/dashboard"
+        };
+  
+        const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+        // alert("You have already added to fav list")
       })
      
            
@@ -141,7 +161,16 @@ export class DashboardComponent implements OnInit {
         this.favService.delete(event,username).subscribe((res)=>{
 
         },(err)=>{
-          alert("You have already added to fav list")
+          let event = "You have already added to fav list";
+  
+          const dialogConfig = new MatDialogConfig();
+          dialogConfig.data = {
+            event: event
+          };
+    
+          const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+          
+          // alert("You have already added to fav list")
         })
        
       }else
@@ -151,7 +180,15 @@ export class DashboardComponent implements OnInit {
       this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
 
       },(err)=>{
-        alert("You have already added to fav list")
+        let event = "You have already added to fav list";
+  
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.data = {
+          event: event
+        };
+  
+        const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+        // alert("You have already added to fav list")
       })
      } 
      
@@ -219,7 +256,15 @@ this.getAll()
 
     console.log(localStorage.getItem("username"))
     if(localStorage.getItem("username")==null){
-      alert("Kindly Login to View Info")
+      let event = "Kindly Login to View Info";
+  
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        event: event
+      };
+
+      const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+      // alert("")
       this.router.navigate(["/login"]);
       return;
     }

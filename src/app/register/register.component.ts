@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CommonDialogComponent } from '../common-dialog/common-dialog.component';
+import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 import { User } from '../Models/User';
 import { UserService } from '../userservice.service';
 
@@ -10,7 +13,7 @@ import { UserService } from '../userservice.service';
 })
 export class RegisterComponent implements OnInit {
 user: User;
-  constructor(private service : UserService ,private router: Router) {
+  constructor(private service : UserService ,private router: Router,public dialog: MatDialog,) {
     this.user = new User();
 
    }
@@ -26,7 +29,14 @@ user: User;
 
       },
         error => {
-          console.log(error);
+          let event= "Registration Unsuccessful.Please try again";
+          const dialogConfig = new MatDialogConfig();
+          dialogConfig.data = {
+           event: event
+        };
+        
+        const dialogRef = this.dialog.open(CommonDialogComponent,dialogConfig);
+      
         })
   }
 

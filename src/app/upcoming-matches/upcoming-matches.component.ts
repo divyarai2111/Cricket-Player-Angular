@@ -8,6 +8,7 @@ import { PlayerService } from '../Services/player.service';
 import { UpcomingMatchesService } from '../Services/upcoming-matches.service';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { element } from 'protractor';
+import { CommonDialogComponent } from '../common-dialog/common-dialog.component';
 
 
 
@@ -27,7 +28,15 @@ export class UpcomingMatchesComponent implements OnInit {
     // this.date="March 29,2021"
 
     if (localStorage.getItem("username") == null) {
-      alert("Kindly Login to View Info")
+      let event = "Kindly login to view Upcoming Matches";
+  
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        event: event
+      };
+
+      const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+      // alert("Kindly Login to View Info")
       this.router.navigate(["/login"]);
       return;
     }
@@ -63,7 +72,7 @@ export class UpcomingMatchesComponent implements OnInit {
   }
 
 
-  constructor(private upcomingMatchesService: UpcomingMatchesService, private router: Router) {
+  constructor(private upcomingMatchesService: UpcomingMatchesService, private router: Router,private dialog:MatDialog) {
 
   }
 

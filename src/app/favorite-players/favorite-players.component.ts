@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CommonDialogComponent } from '../common-dialog/common-dialog.component';
 import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 import { FavServiceService } from '../Services/fav-service.service';
 import { PlayerService } from '../Services/player.service';
@@ -21,7 +22,17 @@ export class FavoritePlayersComponent implements OnInit {
     this.user = localStorage.getItem("username")
     // console.log(localStorage.getItem("username"))
     if (localStorage.getItem("username") == null) {
-      alert("Kindly login to open Fav player")
+      let event = "Kindly login to open Fav player";
+  
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        event: event,
+        route:"/login"
+      };
+
+      const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+
+      // alert("Kindly login to open Fav player")
       this.router.navigate(["/login"]);
       return;
     }
@@ -55,7 +66,7 @@ export class FavoritePlayersComponent implements OnInit {
         
       });
 
-     
+    
 
     })
     // console.log(this.players[0])
@@ -90,7 +101,16 @@ export class FavoritePlayersComponent implements OnInit {
     this.favService.delete(event, this.user).subscribe((res: any) => {
       this.getFavPlayersList(this.user);
     },(err)=>{
-      alert("Cannot delete")
+      let event = "Cannot Delete the Player";
+  
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        event: event
+      };
+
+      const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+
+    
     })
   }
 }

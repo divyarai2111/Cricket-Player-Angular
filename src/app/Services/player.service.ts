@@ -81,6 +81,7 @@ export class PlayerService {
       }]
     }}
     // console.log(this.playerAdd)
+ 
     return this.httpClient.post(this.localUrl,this.playerAdd)
     // return new Observable<any>();
 
