@@ -279,6 +279,8 @@ table th[class*=col-] {
         text-align: center;
         /* height:250px; */
         margin: 1%;
+        border-radius: 16px;
+
         background-color:rgb(189, 245, 245);
       
     }
