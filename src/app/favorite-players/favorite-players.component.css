@@ -290,6 +290,7 @@ table th[class*=col-] {
     object-fit: contain; /*this makes the image in src fit to the size specified below*/
     width: 150px; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
     height:150px;
+    
   }
   
   mat-form-field{
