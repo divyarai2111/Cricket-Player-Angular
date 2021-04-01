@@ -1,6 +1,9 @@
 import { ElementSchemaRegistry } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IgxNavigationDrawerComponent } from 'igniteui-angular';
+// import { IgxNavigationDrawerComponent } from "-angular";
+import * as Hammer from "hammerjs"; 
 
 @Component({
   selector: 'app-header',
@@ -8,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   user: string | null;
 
   constructor(private router:Router) { }
@@ -36,10 +40,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnChanges(){
     this.user=localStorage.getItem("username")
-    // if(localStorage.getItem("username")!=null){
-    //   this.userlogin=true
-    //  }else
-    //  this.userlogin=false
+   
   }
 
   ngAfterViewInit(){

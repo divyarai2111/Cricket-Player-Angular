@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -34,7 +34,11 @@ import { TableFilterPipe } from './upcoming-matches/table-filter.pipe';
 import { FilterPipe } from './upcoming-matches/filter-unique.pipe';
 import { DummyComponent } from './dummy/dummy.component';
 import { CommonDialogComponent } from './common-dialog/common-dialog.component';
-
+import { IgxIconModule, IgxNavigationDrawerModule } from 'igniteui-angular';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {  MatListModule} from '@angular/material/list';
+import { MatSidenavModule} from '@angular/material/sidenav'
+ 
 @NgModule({ 
   declarations: [
     AppComponent,
@@ -49,7 +53,7 @@ import { CommonDialogComponent } from './common-dialog/common-dialog.component';
     TableFilterPipe,
     FavoritePlayersComponent,
     DummyComponent,
-    CommonDialogComponent
+    CommonDialogComponent,
 
 
   ],
@@ -72,8 +76,15 @@ import { CommonDialogComponent } from './common-dialog/common-dialog.component';
     MatDialogModule,
     MDBBootstrapModule.forRoot(),
     MatExpansionModule,
-    MatTableModule
-  
+    MatTableModule,
+    IgxNavigationDrawerModule,
+    IgxIconModule,
+    HammerModule,
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatListModule
+
+
 
 
   ],

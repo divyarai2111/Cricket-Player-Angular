@@ -54,3 +54,9 @@ login-form{
     color: rgb(89, 19, 219);
     font-family: 'Acme, sans-serif';    
 }
+
+.validation_error{
+    color: red;
+    font-size: 10px;
+    justify-content: left;
+}

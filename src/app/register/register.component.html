@@ -1,46 +1,106 @@
-
 <!-- <div  id="page-wrapper"></div> -->
+
 <body>
-  <mat-card class="bg">
-    <mat-card-header>
-      <mat-card-title> Register </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form class="my-form">
+  <form class="my-form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <mat-card class="bg">
+      <mat-card-header>
+        <mat-card-title> Register </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- <form class="my-form" > -->
+
         <mat-form-field>
           <mat-label class="label">Username</mat-label>
-          <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" name="username" required>
-  
+          <!-- <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" name="username" required> -->
+          <!-- <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" 
+          name="username" (keydown.space)="$event.preventDefault();" required minlength="4" #username="ngModel"> -->
+          <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" name="username" required
+            minlength="4" #username="ngModel"    
+            >
+
         </mat-form-field>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)">
+          <div *ngIf="!username" class="validation_error">
+
+            First Name is Required!
+          </div>
+
+          <div *ngIf="username.errors?.minlength" class="validation_error">
+            UserName must be at least 4 characters long.
+          </div>
+
+          <div class="formError" *ngIf="this.username.hasError('alreadyExist')">
+            *this username already exists in our database</div>
+        </div>
         <br>
         <mat-form-field>
           <mat-label class="label">Email</mat-label>
-          <input id="email" class="matInputdata" matInput [(ngModel)]="user.email" name="email" required>
-  
+          <input id="email" class="matInputdata" matInput [(ngModel)]="user.email" name="email" required
+            #email="ngModel" email>
+
         </mat-form-field>
+
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="!email" class="validation_error">
+
+            Email is Required!
+          </div>
+
+          <div *ngIf="email.touched && email.errors?.email" class="validation_error">
+            Email is not Valid!
+          </div>
+        </div>
         <br>
         <mat-form-field>
           <mat-label class="label">Password</mat-label>
           <input type="password" id="password" class="matInputdata" matInput [(ngModel)]="user.password" name="password"
-            required>
-  
+            required #password="ngModel" invalidPassword>
+
         </mat-form-field>
+
+        
+        <div *ngIf="(password.dirty || password.touched)">
+          <div *ngIf="!password" class="validation_error">
+
+            Password is Required!
+          </div>
+
+
+         
+
+          <div *ngIf="password.touched && password.errors?.invalidPassword" class="validation_error">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number!
+          </div>
+        </div>
         <br>
 
         <mat-form-field>
           <mat-label class="label">Confirm Password</mat-label>
-          <input type="password" id="password2" class="matInputdata" matInput [(ngModel)]="user.password2" name="password2"
-            required>
-  
+          <input type="password" id="password2" class="matInputdata" matInput [(ngModel)]="user.password2"
+            name="password2" required #password2="ngModel" (keyup)="passwordNotSame()">
         </mat-form-field>
-      </form>
-    </mat-card-content>
-    <mat-card-actions>
-      <button class="register-user" mat-raised-button color="accent" (click)="register()">
-        Register
-      </button>
-  
-    </mat-card-actions>
-  </mat-card>
-  <!-- </div> -->
+        <div *ngIf="(password2.dirty || password2.touched)">
+          <div *ngIf="!password2" class="validation_error">
+
+            Password is Required!
+          </div>
+
+          <div *ngIf="val" class="validation_error">
+            Passwords are not same !
+          </div>
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="submit" class="register-user" mat-raised-button color="accent">
+          Register
+        </button>
+        <!-- <input type="submit" value="Register" class="register-user" mat-raised-button color="accent"> -->
+
+
+      </mat-card-actions>
+    </mat-card>
+    <!-- </div> -->
+  </form>
 </body>

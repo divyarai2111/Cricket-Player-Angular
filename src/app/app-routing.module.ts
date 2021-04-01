@@ -30,6 +30,14 @@ const appRoutes: Routes = [
   {
     path:'upcomingMatches',
     component:UpcomingMatchesComponent
+  },
+  {
+    path:'login',
+    component:LoginComponent
+  },
+  {
+    path:'register',
+    component:RegisterComponent
   }
 ];
 
