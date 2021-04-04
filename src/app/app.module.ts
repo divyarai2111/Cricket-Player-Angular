@@ -27,17 +27,20 @@ import { MatDialogModule  } from '@angular/material/dialog';
 import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import { UpcomingMatchesComponent } from './upcoming-matches/upcoming-matches.component';
 import { FavoritePlayersComponent } from './favorite-players/favorite-players.component'
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BreadcrumbModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import { TableFilterPipe } from './upcoming-matches/table-filter.pipe';
 import { FilterPipe } from './upcoming-matches/filter-unique.pipe';
-import { DummyComponent } from './dummy/dummy.component';
+// import { DummyComponent } from './dummy/dummy.component';
 import { CommonDialogComponent } from './common-dialog/common-dialog.component';
 import { IgxIconModule, IgxNavigationDrawerModule } from 'igniteui-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {  MatListModule} from '@angular/material/list';
-import { MatSidenavModule} from '@angular/material/sidenav'
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
  
 @NgModule({ 
   declarations: [
@@ -52,8 +55,9 @@ import { MatSidenavModule} from '@angular/material/sidenav'
     UpcomingMatchesComponent,
     TableFilterPipe,
     FavoritePlayersComponent,
-    DummyComponent,
+    
     CommonDialogComponent,
+
 
 
   ],
@@ -82,7 +86,13 @@ import { MatSidenavModule} from '@angular/material/sidenav'
     HammerModule,
     FlexLayoutModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule,
+    
+    
+    
 
 
 

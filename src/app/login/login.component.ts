@@ -51,12 +51,16 @@ export class LoginComponent implements OnInit {
     }
 
     else{
-    this.userservice.login(this.user).subscribe(data => {
-      console.log("data--->" + data.toString);
+      let userObj={
+        "username":this.user.username,
+        "password":this.user.password
+      }
+    this.userservice.login(userObj).subscribe(data => {
+      console.log( data);
       if (data) {
         localStorage.setItem(TOKEN_NAME, data["token"]);
         localStorage.setItem(USER_NAME, this.user.username)
-        this.router.navigate(["/dashboard"]);
+      
         this.refresh();
         this.router.navigate(["/dashboard"]);
       }

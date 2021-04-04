@@ -7,9 +7,9 @@
       <form class="login-form">
         <mat-form-field>
           <mat-label class="label">Username</mat-label>
-          <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" 
+          <input id="username" matInput [(ngModel)]="user.username" 
           name="username" (keydown.space)="$event.preventDefault();" required minlength="4" #username="ngModel">
-          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+          <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
               <div *ngIf="username">
                   UserName is required.
                 </div>
@@ -17,17 +17,17 @@
             UserName must be at least 4 characters long.
           </div>
           
-        </div>
+        </div> -->
            
         </mat-form-field>
   <br>
         <mat-form-field>
           <mat-label class="label">Password</mat-label>
-          <input type="password" id="password" class="matInputdata" matInput [(ngModel)]="user.password" 
+          <input type="password" id="password" matInput [(ngModel)]="user.password" 
           name="password" (keydown.space)="$event.preventDefault();"
           required minlength="8" #password="ngModel">
           
-          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+          <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" >
               <div *ngIf="password">
                   Password is required.
                 </div>
@@ -35,16 +35,16 @@
             Password must be at least 8 characters long.
           </div>
           
-        </div>
+        </div> -->
         </mat-form-field>
       </form>
     </mat-card-content>
     
     <mat-card-actions>
-      <button class="login-click" mat-raised-button color="accent" (click)="login()" (click)="gotohome()">
+      <button mat-raised-button color="accent" (click)="login()" (click)="gotohome()">
         Login
       </button>
-      <button class="register-button" mat-raised-button color="accent" [routerLink]="['/register']">
+      <button mat-raised-button color="accent" [routerLink]="['/register']">
         Register
       </button>
     </mat-card-actions>

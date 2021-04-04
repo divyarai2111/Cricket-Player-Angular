@@ -25,8 +25,9 @@ export class UpcomingMatchesComponent implements OnInit {
   date: any = ''
   model: { date: any; team1: any; team2: any; matchStarted: any; };
   ngOnInit(): void {
-    // this.date="March 29,2021"
 
+    // this.date="March 29,2021"
+    this.user=localStorage.getItem("username")
     if (localStorage.getItem("username") == null) {
       let event = "Kindly login to view Upcoming Matches";
   

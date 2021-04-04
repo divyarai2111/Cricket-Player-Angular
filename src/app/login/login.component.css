@@ -1,15 +1,14 @@
-
 mat-card{
-    display: flex;
+    display: table;
     margin: auto;
     flex-direction:  column;
-    height: fit-content;
-    width: fit-content;
+    /* height: fit-content;
+    width: fit-content; */
     text-align: center;
     background-color:white;
-    margin-bottom: 50vh;
     opacity: 0.7;
-    margin-top: 70px;
+    width: 35vw;
+    
 
     
 }
@@ -22,7 +21,6 @@ body{
     width:100%;
 
     
-    /* backgro- image: url("../../assets/images/back2.jpg");   */
   
   }
 
@@ -30,7 +28,6 @@ mat-card-title{
     color:rgb(15, 15, 15);
     font-size: 1.2em;
     font-family: 'Acme, sans-serif';
-    padding-left: 15vw;
     padding-top: 3vh;
 
 }

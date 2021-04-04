@@ -5,24 +5,24 @@
     <mat-form-field  >
       <input class="searchbar" type="text" matInput #term (keyup)="getSearchText(term.value)">
       <mat-placeholder> &nbsp;&nbsp; &nbsp;  Search Player : type atleast 3 letters</mat-placeholder>
-      <mat-icon matSuffix style="font-size: 1.2em">search</mat-icon>
+      <!-- <mat-icon matSuffix style="font-size: 1.2em">search</mat-icon> -->
     </mat-form-field>
   </form>
   <mat-toolbar class="title">
     <span>Top favourites Players Around the World</span>
   </mat-toolbar>
-  <div *ngIf="playerDisplayed">
-  <mat-card class="inline-block" *ngFor="let note of playerDisplayed, let i = index">
+  <div *ngIf="playerDisplayed" class="cards-main">
+  <mat-card class="inline-block" *ngFor="let player of playerDisplayed, let i = index">
 
 
     <mat-card-header class="inline-block-header">
       <mat-card-title>
-        {{note.name}}
+        {{player.name}}
       </mat-card-title>
 
     </mat-card-header>
-    <div *ngIf="note.imageURL!=null; else elseBlock">
-      <img mat-card-image src="{{note.imageURL}}" alt="" (error)="updateUrl($event)">
+    <div *ngIf="player.imageURL!=null; else elseBlock">
+      <img mat-card-image src="{{player.imageURL}}" alt="" (error)="updateUrl($event)">
     </div>
     <ng-template #elseBlock>
       <img mat-card-image src='../../assets/images/dummy.jpg' alt="">
@@ -42,7 +42,7 @@
 
 
       <br>
-      <button mat-raised-button color="primary" class="bottom" (click)="openDialog(note)">View Info</button>
+      <button mat-raised-button color="primary" class="button_info" (click)="openDialog(player)">View Info</button>
       <!-- <button mat-icon-button (click)="toggleSelected(note,i)">
 
         <mat-icon *ngIf="selected" aria-label="Example icon-button with a heart icon"
@@ -56,7 +56,7 @@
 
       </button> -->
 
-      <button id="favourite+{{i}}" class="heart" mat-icon-button (click)="toggleSelected(i,note)"
+      <button id="favourite+{{i}}" class="heart" mat-icon-button (click)="toggleSelected(i,player)"
     data-toggle="tooltip" data-placement="top" title="Add to favourites">
     <mat-icon *ngIf="playerDisplayed[i].favourite" aria-label="Example icon-button with a heart icon">
       favorite

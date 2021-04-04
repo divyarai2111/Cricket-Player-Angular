@@ -46,9 +46,10 @@
 
             <div  class="bg">
               <mat-toolbar class="title">
-                <span>Your favourites Players Around the World</span>
+                <span> Hello {{user}}, take a look at your favourites Players List</span>
               </mat-toolbar>
-                <mat-card class="inline-block" *ngFor="let note of players, let i = index">
+              <div class="cards-main">
+                <mat-card  *ngFor="let note of players, let i = index">
     
     
                   <mat-card-header class="inline-block-header">
@@ -88,6 +89,7 @@
                 </button>
                   </mat-card-content>
                 </mat-card>
+                </div>
     
     
     

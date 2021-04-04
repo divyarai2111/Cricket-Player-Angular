@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { FavoritePlayersComponent } from './favorite-players/favorite-players.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { HeaderComponent } from './header/header.component';
 // import { LoginComponent } from './login/login.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component'
@@ -15,30 +16,18 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent,
-  //  canActivate: [CanActivateRouteGuard] 
-  },
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'upcomingMatches', component: UpcomingMatchesComponent},
+  { path: 'fav', component: FavoritePlayersComponent},
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
+    
   },
-  {
-    path:'fav',
-    component:FavoritePlayersComponent
-  },
-  {
-    path:'upcomingMatches',
-    component:UpcomingMatchesComponent
-  },
-  {
-    path:'login',
-    component:LoginComponent
-  },
-  {
-    path:'register',
-    component:RegisterComponent
-  }
+
+ 
+
 ];
 
 @NgModule({

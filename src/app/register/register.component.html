@@ -1,22 +1,14 @@
-<!-- <div  id="page-wrapper"></div> -->
-
-<body>
-  <form class="my-form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+<!-- <body>
+  <form class="login-form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
     <mat-card class="bg">
       <mat-card-header>
         <mat-card-title> Register </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <!-- <form class="my-form" > -->
-
         <mat-form-field>
           <mat-label class="label">Username</mat-label>
-          <!-- <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" name="username" required> -->
-          <!-- <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" 
-          name="username" (keydown.space)="$event.preventDefault();" required minlength="4" #username="ngModel"> -->
           <input id="username" class="matInputdata" matInput [(ngModel)]="user.username" name="username" required
-            minlength="4" #username="ngModel"    
-            >
+            minlength="4" #username="ngModel">
 
         </mat-form-field>
         <div *ngIf="username.invalid && (username.dirty || username.touched)">
@@ -54,11 +46,14 @@
         <mat-form-field>
           <mat-label class="label">Password</mat-label>
           <input type="password" id="password" class="matInputdata" matInput [(ngModel)]="user.password" name="password"
-            required #password="ngModel" invalidPassword>
+            required #password="ngModel" invalidPassword (keyup)="checkPassword()">
 
         </mat-form-field>
+        <div *ngIf="passInvalid" class="validation_error">
+          {{passInvalidMessgage}}
+        </div>
 
-        
+
         <div *ngIf="(password.dirty || password.touched)">
           <div *ngIf="!password" class="validation_error">
 
@@ -66,7 +61,7 @@
           </div>
 
 
-         
+
 
           <div *ngIf="password.touched && password.errors?.invalidPassword" class="validation_error">
             Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
@@ -96,11 +91,71 @@
         <button type="submit" class="register-user" mat-raised-button color="accent">
           Register
         </button>
-        <!-- <input type="submit" value="Register" class="register-user" mat-raised-button color="accent"> -->
 
 
       </mat-card-actions>
     </mat-card>
-    <!-- </div> -->
   </form>
+</body> -->
+
+
+<body justify-content-center>
+  <div class="title" >Register to Cric Player Application</div>
+  
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <hr>
+  
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email">
+        <span class="validation_error"
+            *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+            Email is required
+        </span>
+        <span class="validation_error"
+            *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email">
+            Enter a valid email address
+        </span>
+      
+    </div>
+    <div class="form-group">
+        <label>User Name</label>
+        <input type="text" class="form-control" formControlName="username">
+        <span class="validation_error"
+            *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.required">
+            User Name is required
+        </span>
+        <span *ngIf="registerFormControl.username.touched && registerFormControl.username.errors?.minlength" class="validation_error">
+          UserName must be at least 4 characters long.
+        </span>
+        
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password"  (keyup)="checkPassword()">
+        <span class="validation_error"
+            *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+            Password is required
+        </span>
+  
+
+        <span  *ngIf="passInvalid" class="validation_error"> Password should contain at least 1 uppercase , 1 lowercase and 1 number minimum 8 characters
+         
+        </span>
+    </div>
+    <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" class="form-control" formControlName="confirmPassword"  (keyup)="passwordNotSame()">
+        <span class="validation_error"
+            *ngIf="(registerFormControl.confirmPassword.touched || submitted)&& registerFormControl.confirmPassword.errors?.required">
+            Confirm Password is required
+        </span>
+        
+        <span  *ngIf="val" class="validation_error"> Passwords doesnot match
+        </span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" >Register</button>
+    </div>
+</form>
 </body>

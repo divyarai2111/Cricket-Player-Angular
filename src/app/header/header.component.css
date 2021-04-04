@@ -1,48 +1,7 @@
-.example-spacer {
-    flex: 1 1 auto;
-    text-align: center;
-  }
-
-.headerwrapper {
-  background-color: #1f6b9e;
-  min-height: 60px;
-  width: 100%;
-  z-index: 1000;
- }
- .example-button-row {
-  display: table-cell;
-  width: 490px;
-  text-align: right;
-}
-
-.example-button-row .mat-button-base {
-  margin: 8px 8px 8px 0;
-}
-
-
-.headerwrapper.after{
-  clear: both;
-  display: block;
-  content: '';
-}
-.header-left {
-  float: left;
-}
-
-.header-right {
-  float: right;
-}
-
-a.btn.btn-social-icon.btn-github {
-  color: #fff;
-  border: 1px solid #fff;
-  margin: 10px;
-}
-
-
 .content-wrap {
   display: flex;
-  height: 100%;
+  position: fixed;
+  /* height: 100%; */
 }
 
 
@@ -50,6 +9,7 @@ a.btn.btn-social-icon.btn-github {
   padding: 0 14px;
 }
 
-.example-spacer {
+.welcome-spacer {
   flex: 1 1 auto;
+  
 }

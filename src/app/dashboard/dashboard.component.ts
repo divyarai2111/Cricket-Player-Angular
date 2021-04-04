@@ -77,7 +77,7 @@ export class DashboardComponent implements OnInit {
 
           //add this statistic in my mongodb
           this.playerService.addInitPlayersStats(res).subscribe((re) => {
-             console.log(re)
+            //  console.log(re)
           })
         })
         // console.log(element)
@@ -100,7 +100,7 @@ export class DashboardComponent implements OnInit {
       response.forEach((element: any) => {
         if (element != undefined)
           this.playerDisplayed.push(element)
-        console.log(element)
+        // console.log(element)
       });
 
       // console.log(response)
@@ -206,8 +206,8 @@ export class DashboardComponent implements OnInit {
 
 
   updateUrl(event: any) {
-    console.log("Image error")
-    console.log(event)
+    // console.log("Image error")
+    // console.log(event)
     // this.error=true;
     this.imgsrc = "../../assets/images/dummy.jpg";
   }
@@ -221,14 +221,14 @@ export class DashboardComponent implements OnInit {
           this.playerService.getInitPlayersStats(element.pid).subscribe((res2) => {
 
             if (res2 != undefined) {
-              console.log(res2)
+              // console.log(res2)
               this.playerDisplayed.push(res2)
 
             }
 
 
           }, (err) => {
-            console.log(":none");
+            // console.log(":none");
           })
 
         });
@@ -237,7 +237,7 @@ export class DashboardComponent implements OnInit {
         // console.log(res)
 
         , (err) => {
-          console.log(err)
+          // console.log(err)
         })
     }
     else{

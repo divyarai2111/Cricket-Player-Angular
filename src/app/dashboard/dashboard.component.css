@@ -2,13 +2,12 @@
 .bg{
   background-image: url("../../assets/images/CrickBg.jpg"); 
   background-size: contain;
-  
-  /* backgro- image: url("../../assets/images/back2.jpg");   */
+
 
 }
 
 .inline-block-header {
-  display: inline-block;
+  display: inline-table;
   /* width: 200px;
   height:50px; */
   margin: 1%;
@@ -17,42 +16,39 @@
  
 }
 
-.example-card {
-  display: inline-block;
-  max-width: 500px;
-  margin: 4px
-  }
-
 
   .searchbar{
     border-radius: 25px;
     border: 2px solid #279188;
     background-color: whitesmoke;
     padding: 0px 5px 10px 5px;
-    width: -webkit-fill-available;
     height: auto;
     color: green;
     opacity: 0.5;  
+    /* width: 95%; */
+/* margin-top: 10px; */
+/* padding: 1%; */
+
   }
 
-  .example-button-row {
+  /* .example-button-row {
     display: table-cell;
     width: 490px;
-  }
+  } */
   
-  .example-button-row .mat-button-base {
+  /* .example-button-row .mat-button-base {
     margin: 8px 8px 8px 0;
-  }
-
+  } */
   .title{
     opacity: 0.7;
+    justify-content: center
   }
   
 
   mat-card{
     /* height: 200px; */
    
-      display: inline-grid;
+      display: inline-block;
       width: 150px;
       text-align: center;
       /* height:250px; */
@@ -71,10 +67,13 @@ mat-card img{
 
 mat-form-field{
 width: 95%;
-margin-top: 10px;
-padding: 1%;
 
-}
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+
+} 
 mat-card-actions{
 display: flex; justify-content: start; flex-direction: column; flex-wrap: wrap;
 
@@ -92,12 +91,19 @@ mat-card-content{
   overflow: auto;
 }
 
-.bottom{
+.button_info{
   margin-bottom: 1%;
 }
 
  .mat-input-placeholder {
-  padding: 10px;
+  /* padding: 10px; */
   box-sizing: border-box;
+}
+
+.cards-main{
+
+ 
+  text-align: center;
+
 }
 
