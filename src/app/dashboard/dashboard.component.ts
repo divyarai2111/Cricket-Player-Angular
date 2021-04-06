@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['Cash', 'Credit Card', 'Paypal'];
   playerDisplayed :any=[];
+  username: string | null;
 
   constructor(private playerService: PlayerService,
     private favService:FavServiceService,
@@ -65,7 +66,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     // this.getNotes()
- 
+    this.username=localStorage.getItem("username");
     this.playerService.getInitPlayer()
     //getting player id by passing null as name
     this.playerService.getInitPlayer().subscribe((response) => {
@@ -114,9 +115,9 @@ export class DashboardComponent implements OnInit {
 
   toggleSelected(key:any,event:any) {
     // console.log(localStorage.getItem("username"))
-    let username=localStorage.getItem("username");
+    this.username=localStorage.getItem("username");
     if(localStorage.getItem("username")==null){
-      if(username==null){
+      if(this.username==null){
         let event = "Kindly login to add to Fav player";
   
         const dialogConfig = new MatDialogConfig();
@@ -137,7 +138,7 @@ export class DashboardComponent implements OnInit {
 
     if(this.playerDisplayed[key].favourite==undefined){
       this.playerDisplayed[key].favourite=true;  
-      this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
+      this.favService.addFavoritePlayer(event,this.username).subscribe((res)=>{
 
       },(err)=>{
         let event = "You have already added "+   this.playerDisplayed[key].name +" to fav list";
@@ -158,7 +159,7 @@ export class DashboardComponent implements OnInit {
     else{
       if(this.playerDisplayed[key].favourite==true){
         this.playerDisplayed[key].favourite=false;
-        this.favService.delete(event,username).subscribe((res)=>{
+        this.favService.delete(event,this.username).subscribe((res)=>{
 
         },(err)=>{
           let event = "You have already added to fav list";
@@ -177,7 +178,7 @@ export class DashboardComponent implements OnInit {
 
      {
       this.playerDisplayed[key].favourite=true;
-      this.favService.addFavoritePlayer(event,username).subscribe((res)=>{
+      this.favService.addFavoritePlayer(event,this.username).subscribe((res)=>{
 
       },(err)=>{
         let event = "You have already added to fav list";
@@ -252,7 +253,7 @@ this.getAll()
 
   openDialog(event: any) {
   
-    // console.log(event)
+    console.log(event)
 
     console.log(localStorage.getItem("username"))
     if(localStorage.getItem("username")==null){

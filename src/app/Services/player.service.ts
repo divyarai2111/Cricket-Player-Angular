@@ -64,6 +64,7 @@ export class PlayerService {
       "battingStyle": Player.battingStyle,
       "bowlingStyle": Player.bowlingStyle,
       "majorTeams":Player.majorTeams,
+      "currentAge":Player.currentAge,
       "data":[{
       "battingdata": [
               {"t20s":Player.data.batting.T20Is==undefined?"undefined": Player.data.batting.T20Is.Runs,

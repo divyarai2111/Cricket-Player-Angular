@@ -1,48 +1,61 @@
 .inline-block {
-    width: auto;
-    min-height: 'calc(100vh - 90px)';
-    height : 'auto'
-    /* height: 700px; */
-  
-  }
-  
+  width: auto;
+  min-height: 'calc(100vh - 90px)';
+  height : 'auto';
+  /* height: 700px; */
+  font-size: 1.2em;
+  padding: 10px;
+  font-family: 'Acme, sans-serif'
+}
+table{
+  border-collapse:collapse;
+  width: 100%;
+  margin-left:auto; 
+  margin-right:auto;
+}
 
-  .inline-block-header {
-    /* display: inline-block; */
-    /* width: 200px;
-    height:50px; */
-    margin: 1%;
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.example-card {
+  display: inline-block;
+  /* max-width: 500px;
+  margin: 4px */
   }
 
-  .example-card {
-    display: inline-block;
-    /* max-width: 500px;
-    margin: 4px */
-    }
-
-  mat-card img{
-    /* height: 150px; */
-    object-fit: scale-down; /*this makes the image in src fit to the size specified below*/
-    width: 40%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-    height: 0%;
-  }
+mat-card img{
+  /* height: 150px; */
+  object-fit: scale-down; /*this makes the image in src fit to the size specified below*/
+  width: 40%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 0%;
+}
 
 mat-form-field{
-  /* width: 95%; */
-  /* margin-top: 10px; */
-  padding: 1%;
+/* width: 95%; */
+/* margin-top: 10px; */
+padding: 1%;
+
+}
+.profile{
+font-size: 14px;
+padding: 10px;
+display: table-cell;
 
 }
 
-  mat-card-title{
-    color:green;
-    font-size:40px
-    }
-
-  mat-card-content{
-    display: wrap;
+mat-card-title{
+  color:green;
+  font-size:40px;
+  align-items: center;
+  justify-content: center;
   }
 
-  .bottom{
-    margin-bottom: 1%;
-  }
+mat-card-content{
+  display: wrap;
+}
+
+.bottom{
+  margin-bottom: 1%;
+}

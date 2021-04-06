@@ -105,6 +105,19 @@ export class RegisterComponent implements OnInit {
       return;
     }
     else
+    if(this.passInvalid==true){
+      let event = "Password is not strong.";
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        event: event,
+        route: "/register"
+      };
+
+      const dialogRef = this.dialog.open(CommonDialogComponent, dialogConfig);
+      return;
+      
+    }
+    else
       if (this.registerForm.value["confirmPassword"] != this.registerForm.value["password"]) {
         let event = "Password do not match";
         const dialogConfig = new MatDialogConfig();
